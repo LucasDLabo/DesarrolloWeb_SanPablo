@@ -1,0 +1,12 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+h1{
+    background-color: wheat;
+    font-size: larger;
+}
+p{
+    margin-top: 30px;
+}
