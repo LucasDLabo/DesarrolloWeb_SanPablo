@@ -6,7 +6,7 @@ echo "Ejercicio 1 <br>";
         echo "<br>";
     }
 
-// Ejercicio 2 
+// Ejercicio 1.2 
 //Realiza un programa que pida al usuario un número y muestre por pantalla
 //todos los números pares desde 0 hasta ese número utilizando un bucle
 
