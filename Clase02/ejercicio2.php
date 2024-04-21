@@ -12,17 +12,43 @@
 //array_push: Inserta uno o más elementos al final de un array
 //array_search: Busca un valor determinado en un array y devuelve la primera clave correspondiente en caso de éxito
 
-//Manera #1
+
 $numeros = [];
+//Manera #1
+echo "<h2>Manera #1</h2>";
 for ($i = 1 ; $i <=50; $i++) {
-    $numeros[$i] = rand(0,1000);
+    break;
+    $numeros[$i] = rand(0,10);
     if ($numeros[$i] == 5){
         echo "Se encontro el numero 5 en la posición [$i] <br>";
     }else{
         echo "Nop, número $numeros[$i] en la posición [$i] <br>";
     }
-    // echo ("Posición[$i]: $numeros[$i] <br>");
-
 } 
-// var_dump($numeros)
+
+$pushes = 0;
+//Manera #2
+echo "<h2>Manera #2</h2>";
+
+echo "<br><h2>SALTO<h2><br>";
+$numeros_5 = [];
+for ($i = 1; $i <=10; $i++){
+    $numeros[$i] = rand(0,10);
+    $search = array_search(5, $numeros);
+    echo "Search antes del loop: $search";
+    if($search != NULL){
+        $numeros_5[] = $numeros[$i];
+        $numeros[$i] = "Encontrado";
+        echo "<br>Search si es SI: $search";
+    }else{
+        echo "<br>Search si es NO: $search";
+    }
+    echo ("Posición [$i]: $numeros[$i] <br>");
+    
+}
+
+array_push($numeros, $numeros_5);
+var_dump($numeros);
+
+
 ?>
