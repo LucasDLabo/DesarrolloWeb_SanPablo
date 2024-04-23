@@ -1,5 +1,6 @@
 <?php
 // Ejercicio 1 
+//Realiza un programa que muestre por pantalla la tabla de multiplicar del número 7 utilizando un bucle for.
 echo "Ejercicio 1 <br>";
     for ($i = 7; $i <=70; $i+=7){
         echo $i;
@@ -7,8 +8,8 @@ echo "Ejercicio 1 <br>";
     }
 
 // Ejercicio 1.2 
-//Realiza un programa que pida al usuario un número y muestre por pantalla
-//todos los números pares desde 0 hasta ese número utilizando un bucle
+//Realiza un programa que pida al usuario un número y muestre por pantalla todos los números pares 
+//desde 0 hasta ese número utilizando un bucle
 
 $numero = 10;
 $i = 0;
