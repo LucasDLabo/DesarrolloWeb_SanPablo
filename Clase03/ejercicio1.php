@@ -16,7 +16,7 @@ function fizbuz($valor){
     }elseif($valor % 3 == 0){
         echo "<br>fizz";
     }else{
-        echo "<br>$valor";
+        echo "<br> $valor";
     }
 }
 
