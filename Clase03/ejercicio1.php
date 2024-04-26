@@ -5,16 +5,19 @@
 //- Multiplos de 5 por la palabra "buzz"
 //- Multiplos de 3 y de 5 a la vez por la palabra "fizzbuzz"
 
+$num1 = 7;
+$num2 = 2;
+echo "<b>Numeros elegidos: $num1 y $num2</b>";
 for ($i=1; $i<=100;$i++){
-    echo fizbuz($i);
+    fizbuz($i,$num1,$num2);
 }
-function fizbuz($valor){
-    if ($valor % 5 == 0 and $valor % 3 == 0){
-        echo "<br>fizzbuzz";
-    }elseif ($valor % 5 == 0){
-        echo "<br>buzz";
-    }elseif($valor % 3 == 0){
-        echo "<br>fizz";
+function fizbuz($valor, $multpl1, $multpl2){
+    if ($valor % $multpl1 == 0 and $valor % $multpl2 == 0){
+        echo "<br>Fizzbuzz";
+    }elseif ($valor % $multpl1 == 0){
+        echo "<br>Fizz";
+    }elseif($valor % $multpl2 == 0){
+        echo "<br>Buzz";
     }else{
         echo "<br> $valor";
     }
