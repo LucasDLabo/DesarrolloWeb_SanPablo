@@ -8,6 +8,7 @@
 $num1 = 7;
 $num2 = 2;
 echo "<b>Numeros elegidos: $num1 y $num2</b>";
+
 for ($i=1; $i<=100;$i++){
     fizbuz($i,$num1,$num2);
 }
