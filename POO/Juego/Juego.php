@@ -9,18 +9,25 @@ $rol = rand(0,2);
 if ($rol == 1){
     $protagonista->clase="Tanque";
     $protagonista->salud=300;
-    $protagonista->daño=5;
+    $protagonista->daño=7;
+    $protagonista->critic=1.5;
+    $protagonista->critic_chance;
 }elseif ($rol == 2){
     $protagonista->clase="Asesino";
     $protagonista->salud=150;
-    $protagonista->daño=20;
+    $protagonista->daño=7;
+    $protagonista->critic=2 ;
+    $protagonista->critic_chance;
 }else{
     $protagonista->clase="Laburante";
     $protagonista->salud=100;
     $protagonista->daño=10;
+    $protagonista->critic=1.25;
+    $protagonista->critic_chance;
 }
-$poder = rand(20,25);
+
 echo "Su rol es: $protagonista->clase";
+
 
 $enemigo = new Vampiro();
     $enemigo->salud=150;
@@ -28,31 +35,23 @@ $enemigo = new Vampiro();
 
 // $golpeHumano = $humano->attack();
 // $vampiro->hit($golpeHumano);
-echo "<br>Estadisticas <br> Daño: $protagonista->daño Salud: $protagonista->salud <br>";
+// 🧔🧛‍♀️
+echo "<br>Estadisticas <br> Salud: $protagonista->salud 🧔 Daño: $protagonista->daño 🔪 <br>";
+echo "Critico: x". $protagonista->critic. " <br>";
+
+echo "<br>Enemigo <br>Vida : $enemigo->salud 🧛‍♀️ Daño: $enemigo->daño 🩸<br>";
+
+echo "<br>INICIO";
 do {
     $protagonista->hit($enemigo->attack($enemigo->daño));
-    if ($protagonista->salud <= 0){
-        echo "<br>🩸 Vampiro golpeo:" . $enemigo->attack($enemigo->daño). "!";
-        $protagonista->salud=0;
-        echo "👤 Vida Humano:" . $protagonista->salud . " ❌DERROTA PARA EL HUMANO";
-        break;
-    }
-    else{
-        echo "<br>🩸 Vampiro golpeo:" . $enemigo->attack($enemigo->daño). "! ";
-        echo "🧔 Vida Humano:" . $protagonista->salud;
-    }
+    echo "<br>🩸 Vampiro golpeo:" . $enemigo->attack($enemigo->daño). "! ";
+    echo "Vida: $protagonista->salud 🧔";
 
-    $enemigo->hit($protagonista->attack($protagonista->daño));
-    if ($enemigo->salud <= 0){
-        echo "<br> 🔪 Humano golpeo:" . $protagonista->attack($protagonista->daño). "!";
-        $enemigo->salud=0;
-        echo " 💀 Vida Vampiro:" . $enemigo->salud . " 🌟VICTORIA PARA EL HUMANO";
-        break;
-    }else{
-        echo "<br> 🔪 Humano golpeo:" . $protagonista->attack($protagonista->daño). "!";
-        echo " 🧛‍♀️ Vida Vampiro:" . $enemigo->salud . "<br>";
-    }
+    $enemigo->hit($protagonista->critic());
+    echo "<br> 🔪 Humano golpeo:" . $protagonista->attack(). "!";
+    echo " Vida:" . $enemigo->salud . "🧛‍♀️<br>";
+
     
-} while ($protagonista->salud != 0 and $enemigo->salud != 0);
+} while ($protagonista->salud > 0 and $enemigo->salud > 0);
 
 

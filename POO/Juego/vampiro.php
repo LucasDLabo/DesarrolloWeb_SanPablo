@@ -9,7 +9,7 @@ class Vampiro extends Humano{
         $this->salud -= $salud;
     }
 
-    public function attack ($daño){
-        return $daño;
+    public function attack (){
+        return $this->daño;
     }
 }
