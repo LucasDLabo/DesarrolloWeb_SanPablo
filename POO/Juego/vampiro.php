@@ -12,4 +12,10 @@ class Vampiro extends Humano{
     public function attack (){
         return $this->daño;
     }
+
+    public function robodevida(){
+        $cura = rand(20,30);
+        $this->salud += $cura;
+        return $cura;
+    }
 }
