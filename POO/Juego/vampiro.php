@@ -10,7 +10,7 @@ class Vampiro extends Humano{
     }
 
     public function attack (){
-        return $this->daño;
+        return rand(10,20);
     }
 
     public function robodevida(){
