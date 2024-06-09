@@ -17,7 +17,9 @@ class Humano {
 
     public function attack (){
         if ($this->clase == "Tanque"){
+
             $critic_chance = rand(1,10);
+
             if ($critic_chance == 1){
                 echo "<br>Turno 🧔: El humano toma el hacha con sus 2 manos e impacta al vampiro, realizando un GOLPE CRITICO💥 de <b>" 
                     . $this->daño*2 . 
@@ -29,8 +31,11 @@ class Humano {
                     "</b> 🪓PUNTOS DE DAÑO" ;
                 return $this->daño;
             }
+
         }elseif ($this->clase == "Asesino"){
+
             $critic_chance = rand(1,5);
+
             if ($critic_chance == 1){
                 echo "<br>Turno 🧔: El humano consigue consigue acercarse y apuñala el punto vital del vampiro, dañandolo de gravedad con <b>" 
                     . $this->daño*3 . 
@@ -43,7 +48,9 @@ class Humano {
                 return $this->daño;
             }
         }else{
+
             $critic_chance = rand(1,10);
+            
             if ($critic_chance == 1){
                 echo "<br>Humano golpeo: " . $this->daño*1.5 . " 💥";
                 return $this->daño*1.5;
