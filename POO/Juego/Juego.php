@@ -5,7 +5,7 @@ require_once 'vampiro.php';
 $protagonista = new Humano();
 
 
-$rol = rand(1,2);
+$rol = rand(1,4);
 if ($rol == 1){
     $protagonista->clase="Tanque";
     $protagonista->salud=300;
@@ -19,17 +19,23 @@ if ($rol == 1){
     $protagonista->critic=3 ;
     $protagonista->habilidad="Posibilidad de golpear 2 veces 🤺";
 
-}else{
+}elseif ($rol == 3){
     $protagonista->clase="Laburante";
     $protagonista->salud=100;
     $protagonista->daño=10;
     $protagonista->critic=1.25;
-    $protagonista->habilidad="No llega a finde mes";
+    $protagonista->habilidad="Levantarse todos los dias a las 6 AM";
 
+}else{
+    $protagonista->clase="Mago";
+    $protagonista->salud=225;
+    $protagonista->daño=9;
+    $protagonista->critic=2;
+    $protagonista->habilidad="Algo con magia";
 }
 $enemigo = new Vampiro();
     $enemigo->salud=150;
-echo "<h2>Bienvenido a PHP Vampires</h2>";
+echo "<h2>🦇Bienvenido a PHP Vampires 🦇</h2>";
 
 echo "Su rol elegido es <b>$protagonista->clase</b> y tu habilidad es: <b>  $protagonista->habilidad </b> 
     <br> Tus estadististicas son:<b>
@@ -102,22 +108,14 @@ do {
 
         case 'Laburante':
 
-            $protagonista->hit($enemigo->attack($enemigo->daño));
-                if ($protagonista->salud <= 0){
-                    echo "Vampiro golpeo:" . $enemigo->attack($enemigo->daño) . "🩸\n";
-                    $protagonista->salud=0;
-                    echo "y la vida baja a $protagonista->salud 👤 <br> ❌DERROTA PARA EL HUMANO";
-                    break;
-                }else{
-                    echo "Vampiro golpeo:" . $enemigo->attack($enemigo->daño). "🩸\n";
-                    echo "y la vida baja a $protagonista->salud 🧔 <br>";
-                }
+            $dañoEnemigo = $enemigo->attack();
+            VampiroGolpeaLaburante($protagonista, $dañoEnemigo);           
+            break;
+        case 'Mago':
+            $dañoEnemigo = $enemigo->attack();
+            VampiroGolpeaMago($protagonista, $dañoEnemigo);
             break;
     }
-
-    
-
-    
 
 } while ($protagonista->salud > 0 and $enemigo->salud > 0);
 
@@ -149,7 +147,7 @@ function VampiroGolpeaTanque($protagonista, $enemigo, $dañoEnemigo){
                 "</b>💚";
         }
     }
-}
+    }
 function VampiroGolpeaAsesino($protagonista, $dañoEnemigo){
     if($dañoEnemigo >= $protagonista->salud){
         echo "Turno 🧛‍♀️: El humano con sus ultimos " . $protagonista->salud. "💚 PUNTOS DE VIDA, 
@@ -180,4 +178,61 @@ function VampiroGolpeaAsesino($protagonista, $dañoEnemigo){
         }
     }
 
+
+function VampiroGolpeaLaburante ($protagonista, $dañoEnemigo){
+    $protagonista->hit($dañoEnemigo);
+
+    if ($protagonista->salud <= 0){
+        echo "Turno 🧛‍♀️: Estando el humano debilitado, el vampiro inflige su ultimo golpe de " . $dañoEnemigo . "🩸PUNTOS DE DAÑO,";
+        echo " derrotando a nuestro pobre laburante 👤 <br> <h2>❌DERROTA PARA EL HUMANO</h2>";
+    }elseif ($dañoEnemigo < 15){
+
+        echo "Turno 🧛‍♀️: El vampiro abofetea al humano, realizandole " 
+            . $dañoEnemigo . "🖐 PUNTOS DE DAÑO. 
+            La vida del 🧔 baja a <b>" . $protagonista->salud . 
+            "</b>💚";
+
+    }elseif ($dañoEnemigo >= 15 and $dañoEnemigo < 18){
+
+        echo "Turno 🧛‍♀️: Utilizando su inmenso poder, el enemigo pellizca al humano infligiendole "
+            . $dañoEnemigo . "🩸​ PUNTOS DE DAÑO. 
+            La vida del 🧔 baja a <b>" . $protagonista->salud .
+            "</b>💚";
+
+    }else{
+        echo "Turno 🧛‍♀️: El vampiro le muestra impuestos sin pagar y hace que el laburante se deprima. Golpe critico de "
+            . $dañoEnemigo . "💢 PUNTOS DE DAÑO haciendo que el 🧔 pierda vida y se reduzca hasta <b>"
+            . $protagonista->salud . 
+            "</b>💚";
+    }
+    }
+
+function VampiroGolpeaMago($protagonista, $dañoEnemigo){
+    $protagonista->hit($dañoEnemigo);
+
+    if ($protagonista->salud <= 0){
+        echo "Turno 🧛‍♀️: Estando el humano debilitado, el vampiro inflige su ultimo golpe de " . $dañoEnemigo . "🩸PUNTOS DE DAÑO,";
+        echo " derrotando a nuestro pobre laburante 👤 <br> <h2>❌DERROTA PARA EL HUMANO</h2>";
+    }elseif ($dañoEnemigo < 15){
+
+        echo "Turno 🧛‍♀️: El vampiro abofetea al humano, realizandole " 
+            . $dañoEnemigo . "🖐 PUNTOS DE DAÑO. 
+            La vida del 🧔 baja a <b>" . $protagonista->salud . 
+            "</b>💚";
+
+    }elseif ($dañoEnemigo >= 15 and $dañoEnemigo < 18){
+
+        echo "Turno 🧛‍♀️: Utilizando su inmenso poder, el enemigo pellizca al humano infligiendole "
+            . $dañoEnemigo . "🩸​ PUNTOS DE DAÑO. 
+            La vida del 🧔 baja a <b>" . $protagonista->salud .
+            "</b>💚";
+
+    }else{
+        echo "Turno 🧛‍♀️: El vampiro le muestra impuestos sin pagar y hace que el laburante se deprima. Golpe critico de "
+            . $dañoEnemigo . "💢 PUNTOS DE DAÑO haciendo que el 🧔 pierda vida y se reduzca hasta <b>"
+            . $protagonista->salud . 
+            "</b>💚";
+    }
+    
+    }
 ?>
