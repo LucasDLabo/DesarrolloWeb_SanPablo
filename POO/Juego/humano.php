@@ -8,6 +8,8 @@ class Humano {
     public $critic;
     public $critic_chance;
     public $habilidad;
+    public $activacionDeHabilidad;
+    public $icono;
 
     // Aca irian los metodos o acciones de la clase
     public function hit ($salud){
@@ -82,8 +84,8 @@ class Humano {
             return rand(1,6);
         }elseif ($this->clase == "Asesino"){
             return rand(1,10);
-        }else{
-            return ;
+        }elseif ($this->clase == "Mago"){
+            return rand(1,3) ;
         }
     }
 
