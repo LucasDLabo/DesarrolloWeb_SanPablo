@@ -24,7 +24,7 @@ class Humano {
                 $critic_chance = rand(1,10);
 
                 if ($critic_chance == 1){
-                    echo "<br>Turno 🧔: El humano toma el hacha con sus 2 manos e impacta al vampiro, realizando un GOLPE CRITICO💥 de <b>" 
+                    echo "<br>Turno 🧔: El humano toma el hacha con sus 2 manos e impacta al vampiro, realizando un golpe crítico💥 de <b>" 
                         . $this->daño*2 . 
                         "</b> 🪓PUNTOS DE DAÑO ❗❗";
                     return $this->daño*2;
@@ -56,7 +56,7 @@ class Humano {
                 $critic_chance = rand(1,10);
             
                 if ($critic_chance == 1){
-                    echo "<br>Turno 🧔: Increible! El humano realizó un golpe critico y ni sabemos como! <b>" . $this->daño*1.5 . "💥PUNTOS DE DAÑO</b>";
+                    echo "<br>Turno 🧔: Increíble! El humano realizó un golpe crítico y ni sabemos como! <b>" . $this->daño*1.5 . "💥PUNTOS DE DAÑO</b>";
                     return $this->daño*1.5;
                 }else{
                     echo "<br>Turno 🧔: El laburante le tira con su mochila haciendole <b>" . $this->daño . "✅PUNTOS DE DAÑO</b> " ;
@@ -68,7 +68,7 @@ class Humano {
                 $critic_chance = rand(1,10);
             
                 if ($critic_chance == 1){
-                    echo "<br>Turno 🧔: Utilizando sus antiguos poderes, el mago desata una cadena de rayos que realizan un golpe critico de <b>" . $this->daño*2 . "💥PUNTOS DE DAÑO</b>";
+                    echo "<br>Turno 🧔: Utilizando sus antiguos poderes, el mago desata una cadena de rayos que realizan un golpe crítico de <b>" . $this->daño*2 . "💥PUNTOS DE DAÑO</b>";
                     return $this->daño*2;
                 }else{
                     echo "<br>Turno 🧔: Lanza una bola de fuego con su bastón que inflige <b>" . $this->daño . "🔮PUNTOS DE DAÑO</b> " ;

@@ -4,10 +4,10 @@ require_once 'vampiro.php';
 
 $protagonista = new Humano();
 
-$rol = rand(1,4);
+$rol = rand(4,4);
 if ($rol == 1){
     $protagonista->clase="Tanque";
-    $protagonista->salud=300;
+    $protagonista->salud=325;
     $protagonista->daño=7;
     $protagonista->critic=2;
     $protagonista->habilidad="Posibilidad de bloquear daño 🛡️";
@@ -30,7 +30,7 @@ if ($rol == 1){
 
 }else{
     $protagonista->clase="Mago";
-    $protagonista->salud=225;
+    $protagonista->salud=200;
     $protagonista->daño=9;
     $protagonista->critic=2;
     $protagonista->habilidad="Posibilidad de activar una habilidad secreta cuando tenga la mitad de su vida🌌";
@@ -39,17 +39,18 @@ if ($rol == 1){
 }
 $enemigo = new Vampiro();
     $enemigo->salud=150;
+
 echo "<h2>🦇Bienvenido a PHP Vampires 🦇</h2>";
 
 echo "Su rol elegido es <b>$protagonista->clase $protagonista->icono </b> y tu habilidad es: <b>  $protagonista->habilidad </b> 
-    <br> Tus estadististicas son:<b>
+    <br> Tus estadístisticas son:<b>
     <br>Salud: $protagonista->salud 💚 
     <br>Daño: $protagonista->daño" ; switch ($protagonista->clase) {case 'Tanque': echo "🪓"; break; case 'Asesino': echo "🔪"; break; case 'Laburante': echo "✅"; break; case 'Mago': echo "🔮"; break;
     }
-    echo "<br>Daño Critico: x$protagonista->critic 💥<br></b>";
+    echo "<br>Daño crítico: x$protagonista->critic 💥<br></b>";
 
 
-echo "<br>Las estadististicas del enemigo son:<b>
+echo "<br>Las estadístisticas del enemigo son:<b>
     <br>Vida : $enemigo->salud 🧛‍♀️ 
     <br>Daño: Variable entre 10 y 20 🩸
     <br>Habilidad: Posibilidad de curarse cuando se encuentra a mitad de su vida💖</b><br>";
@@ -79,7 +80,8 @@ do {
 
             if ($protagonista->salud <= 0){
                 $protagonista->salud = 0;
-                echo "y mata al humano con esta habilidad $protagonista->salud 👤 <br> <h2>❌DERROTA PARA EL HUMANO</h2>" ;
+                echo "y mata al humano con esta habilidad $protagonista->salud 👤 <br> <h2>❌DERROTA PARA EL HUMANO</h2>";
+
             }else{
                 echo "y la vida del humano baja a $protagonista->salud 📛🧔" ;
             }
@@ -95,7 +97,7 @@ do {
                 break;
             }else{
                 $dañoEnemigo = $enemigo->attack();
-                VampiroGolpea($protagonista, $enemigo, $dañoEnemigo);
+                VampiroGolpea($protagonista, $enemigo, $dañoEnemigo,);
                 break;
             }
         
@@ -127,7 +129,7 @@ do {
 
                         $curacion = round($protagonista->salud / 2);
                         $protagonista->salud += $curacion;
-                        echo "una energia regenerativa le cura la mitad de su vida💓($curacion puntos). La vida sube a <b>". $protagonista->salud ."</b>💚 <br>";
+                        echo "una energía regenerativa le cura la mitad de su vida💓($curacion puntos). La vida sube a <b>". $protagonista->salud ."</b>💚 <br>";
 
                     }elseif ($magoRNG == 2){
 
@@ -143,7 +145,8 @@ do {
                         echo "<br><br><b>Turno N#$turno</b>";
                         $enemigo->hit($protagonista->attack());
                         if ($enemigo->salud <= 0){
-                            echo ", liquidando con este ultimo golpe la vida del 🧛‍♀️⚰️<br> <h2>🌟VICTORIA PARA EL HUMANO</h2>";
+                            echo ", liquidando con este último golpe la vida del 🧛‍♀️⚰️<br> <h2>🌟VICTORIA PARA EL HUMANO</h2>";
+                
                             break;
                         }else{
                             echo ". La vida del 🧛‍♀️ baja a " . $enemigo->salud . " <br>";
@@ -163,7 +166,7 @@ do {
 } while ($protagonista->salud > 0 and $enemigo->salud > 0);
 
 function VampiroGolpea($protagonista, $enemigo, $dañoEnemigo){
-    
+
     switch ($protagonista->clase) {
         case 'Tanque':
 
@@ -173,6 +176,7 @@ function VampiroGolpea($protagonista, $enemigo, $dañoEnemigo){
                 echo "Turno 🧛‍♀️: Acierta su golpe final de " 
                     . $enemigo->attack($enemigo->daño) . "🩸 DE DAÑO para eliminar a el humano <br> 
                     <h2>❌DERROTA PARA EL HUMANO</h2>";
+        
         
             }else{
                 if ($dañoEnemigo < 15){
@@ -189,7 +193,7 @@ function VampiroGolpea($protagonista, $enemigo, $dañoEnemigo){
                         pierda vida hasta llegar a <b>" . $protagonista->salud . "</b> puntos de vida💚";
         
                 }else{
-                    echo "Turno 🧛‍♀️: El vampiro logra colocarse en la espalda del humano y realiza un golpe critico de "
+                    echo "Turno 🧛‍♀️: El vampiro logra colocarse en la espalda del humano y realiza un golpe crítico de "
                         . $dañoEnemigo . "💢 PUNTOS DE DAÑO haciendo que la vida del ". $protagonista->icono ." 
                         se reduzca a <b>" . $protagonista->salud . 
                         "</b>💚";
@@ -204,6 +208,7 @@ function VampiroGolpea($protagonista, $enemigo, $dañoEnemigo){
                 echo "Turno 🧛‍♀️: El humano con sus ultimos " . $protagonista->salud. "💚 PUNTOS DE VIDA, 
                     es dañado efectivamente con " . $dañoEnemigo . "🩸 DE DAÑO para terminar con su vida y hacer vencedor al 🧛‍♀️. <br> 
                     <h2>❌DERROTA PARA EL HUMANO</h2>";
+
                     exit;
             }
 
@@ -224,7 +229,7 @@ function VampiroGolpea($protagonista, $enemigo, $dañoEnemigo){
                         "</b>💚";
         
                 }else{
-                    echo "Turno 🧛‍♀️: El vampiro alza un arma del suelo, golpeando al humano y realizando un golpe critico de "
+                    echo "Turno 🧛‍♀️: El vampiro alza un arma del suelo, golpeando al humano y realizando un golpe crítico de "
                         . $dañoEnemigo . "💢 PUNTOS DE DAÑO haciendo que el ". $protagonista->icono ." pierda vida y se reduzca hasta <b>"
                         . $protagonista->salud . 
                         "</b>💚";
@@ -238,6 +243,7 @@ function VampiroGolpea($protagonista, $enemigo, $dañoEnemigo){
             if ($protagonista->salud <= 0){
                 echo "Turno 🧛‍♀️: Estando el humano debilitado, el vampiro inflige su ultimo golpe de " . $dañoEnemigo . "🩸PUNTOS DE DAÑO,";
                 echo " derrotando a nuestro pobre laburante 👤 <br> <h2>❌DERROTA PARA EL HUMANO</h2>";
+
             }elseif ($dañoEnemigo < 15){
 
                 echo "Turno 🧛‍♀️: El vampiro abofetea al humano, realizandole " 
@@ -253,7 +259,7 @@ function VampiroGolpea($protagonista, $enemigo, $dañoEnemigo){
                     "</b>💚";
 
             }else{
-                echo "Turno 🧛‍♀️: El vampiro le muestra impuestos sin pagar y hace que el laburante se deprima. Golpe critico de "
+                echo "Turno 🧛‍♀️: El vampiro le muestra impuestos sin pagar y hace que el laburante se deprima. Golpe crítico de "
                     . $dañoEnemigo . "💢 PUNTOS DE DAÑO haciendo que el ". $protagonista->icono ." pierda vida y se reduzca hasta <b>"
                     . $protagonista->salud . 
                     "</b>💚";
@@ -267,6 +273,7 @@ function VampiroGolpea($protagonista, $enemigo, $dañoEnemigo){
             if ($protagonista->salud <= 0){
                 echo "Turno 🧛‍♀️: El vampiro inflige " . $dañoEnemigo . "🩸PUNTOS DE DAÑO para rematar con un golpe final al mago.";
                 echo "👤 <br> <h2>❌DERROTA PARA EL HUMANO</h2>";
+
             }elseif ($dañoEnemigo < 15){
 
                 echo "Turno 🧛‍♀️: El vampiro golpea al mago con sus alas haciendole " 
@@ -282,7 +289,7 @@ function VampiroGolpea($protagonista, $enemigo, $dañoEnemigo){
                     "</b>💚";
 
             }else{
-                echo "Turno 🧛‍♀️: El vampiro utiliza sus poderes para utilizar los rayos del mago, haciendo que infliga un golpe critico de "
+                echo "Turno 🧛‍♀️: El vampiro utiliza sus poderes para utilizar los rayos del mago, haciendo que infliga un golpe crítico de "
                     . $dañoEnemigo . "💢 PUNTOS DE DAÑO haciendo que el ". $protagonista->icono ." pierda vida y se reduzca hasta <b>"
                     . $protagonista->salud . 
                     "</b>💚";
@@ -290,5 +297,4 @@ function VampiroGolpea($protagonista, $enemigo, $dañoEnemigo){
             break;
     }
 }
-
 ?>
