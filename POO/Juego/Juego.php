@@ -56,45 +56,60 @@ echo "<br>Las estadístisticas del enemigo son:<b>
     <br>Habilidad: Posibilidad de curarse cuando se encuentra a mitad de su vida💖</b><br>";
 
 echo "<br>INICIO";
+
 $turno = 0;
 $mitadDeVida = ($protagonista->salud / 2);
+
 do {
+
     $turno += 1;
     echo "<br><br><b>Turno N#$turno</b>";
 
     $enemigo->hit($protagonista->attack());
 
     if ($enemigo->salud <= 0){
+
         $enemigo->salud = 0;
         echo ", liquidando con este ultimo golpe la vida del 🧛‍♀️⚰️<br> <h2>🌟VICTORIA PARA EL HUMANO</h2>";
         exit;
+
     }elseif ($enemigo->salud <=75) {
+
         $curaRNG = rand(1,7);
+
         if ($curaRNG == 1){
+
             echo " y la vida del 🧛‍♀️ baja a $enemigo->salud <br>";
 
             $cura = $enemigo->robodevida();
-
             echo "Turno 🧛‍♀️: Utiliza sus colmillos y se cura $cura PUNTOS DE VIDA💖 Su vida sube a $enemigo->salud ";
+
             $protagonista->hit($enemigo->attack($cura));
 
             if ($protagonista->salud <= 0){
+
                 $protagonista->salud = 0;
                 echo "y mata al humano con esta habilidad $protagonista->salud 👤 <br> <h2>❌DERROTA PARA EL HUMANO</h2>";
 
             }else{
+
                 echo "y la vida del humano baja a $protagonista->salud 📛🧔" ;
+
             }
             continue;
         }
     }
+
     echo ". La vida del 🧛‍♀️ baja a " . $enemigo->salud . " <br>";
     
     switch ($protagonista->clase) {
+
         case 'Tanque':
+
             if ($protagonista->special()==1){
                 echo "Turno 🧛‍♀️: Intenta golpear pero el humano utiliza su escudo 🛡️ y se cubre del daño";
                 break;
+
             }else{
                 $dañoEnemigo = $enemigo->attack();
                 VampiroGolpea($protagonista, $enemigo, $dañoEnemigo,);
@@ -119,6 +134,7 @@ do {
             $dañoEnemigo = $enemigo->attack();
             VampiroGolpea($protagonista,$enemigo, $dañoEnemigo);           
             break;
+
         case 'Mago':
             
             if ($protagonista->special()==1 and $protagonista->salud <= $mitadDeVida and $protagonista->activacionDeHabilidad == false ){
@@ -126,19 +142,15 @@ do {
                 echo "🌌El mago comienza a leer su libro para conjurar su hechizo, destellos salen y  ";
                 $magoRNG = rand(1,3);
                     if ($magoRNG == 1) {
-
                         $curacion = round($protagonista->salud / 2);
                         $protagonista->salud += $curacion;
                         echo "una energía regenerativa le cura la mitad de su vida💓($curacion puntos). La vida sube a <b>". $protagonista->salud ."</b>💚 <br>";
 
                     }elseif ($magoRNG == 2){
-
                         $protagonista->daño = $protagonista->daño * 2;
                         echo "se envuelve en un umbral de poder el cual potencia su daño el doble! 📈<br>";
 
                     }else{
-
-                        
                         echo " una ráfaga de hielo penetra en el enemigo, lo cual lo deja paralizado! 💫🧊";
 
                         $turno += 1;
@@ -146,8 +158,8 @@ do {
                         $enemigo->hit($protagonista->attack());
                         if ($enemigo->salud <= 0){
                             echo ", liquidando con este último golpe la vida del 🧛‍♀️⚰️<br> <h2>🌟VICTORIA PARA EL HUMANO</h2>";
-                
                             break;
+
                         }else{
                             echo ". La vida del 🧛‍♀️ baja a " . $enemigo->salud . " <br>";
                         }
@@ -158,6 +170,7 @@ do {
                 $dañoEnemigo = $enemigo->attack();
                 VampiroGolpea($protagonista, $enemigo,$dañoEnemigo);
                 break;
+
             }
 
             
@@ -168,6 +181,7 @@ do {
 function VampiroGolpea($protagonista, $enemigo, $dañoEnemigo){
 
     switch ($protagonista->clase) {
+
         case 'Tanque':
 
             $protagonista->hit($dañoEnemigo);
@@ -176,7 +190,6 @@ function VampiroGolpea($protagonista, $enemigo, $dañoEnemigo){
                 echo "Turno 🧛‍♀️: Acierta su golpe final de " 
                     . $enemigo->attack($enemigo->daño) . "🩸 DE DAÑO para eliminar a el humano <br> 
                     <h2>❌DERROTA PARA EL HUMANO</h2>";
-        
         
             }else{
                 if ($dañoEnemigo < 15){
