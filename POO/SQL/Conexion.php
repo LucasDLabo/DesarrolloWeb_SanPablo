@@ -10,4 +10,6 @@ class Conexion{
     public function conectarBaseDeDatos(){
         $this->conexion = mysqli_connect ("localhost", "root", "", "poo");
     }
+
+    
 }

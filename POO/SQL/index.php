@@ -15,3 +15,11 @@ $cliente->email = "lucas.dellabo@gmail.com";
 $cliente->edad = "21";
 $cliente->create();
 
+//Los dos puntos se uitlizan cuando se quiere acceder a un metodo estatico
+// $cliente = Cliente::BuscarId(1);
+
+// echo $cliente->nombre . " " . $cliente->apellido;
+
+$cliente->nombre = "Nico";
+$cliente->id= 29;
+$cliente->update();
