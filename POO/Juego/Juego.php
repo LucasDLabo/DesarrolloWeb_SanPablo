@@ -4,7 +4,7 @@ require_once 'vampiro.php';
 
 $protagonista = new Humano();
 
-$rol = rand(4,4);
+$rol = rand(1,4);
 if ($rol == 1){
     $protagonista->clase="Tanque";
     $protagonista->salud=325;
