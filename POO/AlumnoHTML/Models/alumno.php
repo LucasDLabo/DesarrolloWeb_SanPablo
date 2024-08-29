@@ -28,4 +28,26 @@ class Alumno extends Conexion {
 
         return $alumnos;
     }
+
+    public static function getById($id){
+
+        $conexion = new Conexion();
+        $conexion->conectar();
+        $pre = mysqli_prepare($conexion->con, "SELECT * FROM alumnos WHERE id = ?");
+        $pre->bind_param("i", $id);
+        $pre->execute();
+        $valorDB = $pre->get_result();
+
+        $alumno = $valorDB->fetch_object(Alumno::class);
+
+        return $alumno;
+
+    }
+
+    public function delete() {
+        $this->conectar();
+        $pre = mysqli_prepare($this->con, "DELETE FROM alumnos WHERE id = ?");
+        $pre->bind_param("i", $this->id);
+        $pre->execute();
+    }
 }

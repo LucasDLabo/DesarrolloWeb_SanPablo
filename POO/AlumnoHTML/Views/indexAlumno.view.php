@@ -65,20 +65,20 @@
 
                                 //Segunda Forma 
                                 // "<?="  equivale a un <?php echo
-                                foreach ($alumnos as $alumnos) { ?>
+                                foreach ($alumnos as $alumno) { ?>
                                     <tr>
-                                        <td><?= $alumnos->id; ?></td>
-                                        <td><?= $alumnos->nombre; ?></td>
-                                        <td><?= $alumnos->apellido; ?></td>
-                                        <td><?= date('d/m/Y', strtotime($alumnos->fecha_nacimiento));  ?></td>
+                                        <td><?= $alumno->id; ?></td>
+                                        <td><?= $alumno->nombre; ?></td>
+                                        <td><?= $alumno->apellido; ?></td>
+                                        <td><?= date('d/m/Y', strtotime($alumno->fecha_nacimiento));  ?></td>
                                         <td> 
                                             <div>
+                                                <a href="eliminarAlumno.php?id=<?= $alumno->id; ?>">Eliminar❌</a>
+                                                <a href="editarAlumno.php?id=<?= $alumno->id; ?>"></a>
                                                 <button>
                                                     <a href="" style="text-decoration: none; color: sienna;">Editar✍️</a>    
                                                 </button>
-                                                <button>
-                                                    <a href="" style="text-decoration: none; color: red;">Eliminar❌</a>    
-                                                </button>
+                                                
                                             </div>
                                         </td>
                                     </tr>
