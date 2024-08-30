@@ -1,6 +1,6 @@
 <?php
 
-require_once "../Models/alumno.php";
+require_once "../../Models/alumno.php";
 
 if (isset($_POST['submit'])) {
     $nombre = $_POST['nombre'];
@@ -13,6 +13,8 @@ if (isset($_POST['submit'])) {
     $alumno->fecha_nacimiento = $fecha_nacimineto;
     $alumno->create();
 
+    header('Location: ../../Controllers/Alumnos/indexAlumno.php');
+
 }
 
-require_once "../Views/createAlumno.view.php";
+require_once "../../Views/Alumnos/createAlumno.view.php";

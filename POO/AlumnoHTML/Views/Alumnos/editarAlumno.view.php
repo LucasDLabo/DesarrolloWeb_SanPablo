@@ -7,7 +7,7 @@
 </head>
 <body>
     <button>
-        <a href="indexAlumno.php" style="text-decoration: none; color:black; font-size:17px">Volver atras ↩</a>
+        <a href="indexAlumno.php" style="text-decoration: none; color:black; font-size:17px">Volver atrás ↩️</a>
     </button>
 
     <h1>Ingrese los nuevos datos del alumno✍ - ID(<?= $alumno->id?>)</h1>

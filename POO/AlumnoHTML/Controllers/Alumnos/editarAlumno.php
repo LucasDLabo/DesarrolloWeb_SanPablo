@@ -1,6 +1,6 @@
 <?php
 
-require_once "../Models/alumno.php";
+require_once "../../Models/alumno.php";
 
 $id = $_GET['id'];
 
@@ -15,11 +15,11 @@ if (isset($_POST['submitEdit'])) {
     $alumno->fecha_nacimiento = $fecha_nacimineto;
     $alumno->update();
 
-    header('Location: ../Controllers/indexAlumno.php');
+    header('Location: ../../Controllers/Alumnos/indexAlumno.php');
 }else{
     $alumno = Alumno::getById($id);
     if($alumno){
-        require_once "../Views/editarAlumno.view.php";
+        require_once "../../Views/Alumnos/editarAlumno.view.php";
     }
 }
 
