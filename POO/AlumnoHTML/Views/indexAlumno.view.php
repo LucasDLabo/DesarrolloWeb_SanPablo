@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>DataTables Server-side procesado con PHP y MYSQL</title>
+    <title>👨‍🎓 Alumnos </title>
     <!-- DataTables CSS library -->
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.css" />
@@ -73,11 +73,8 @@
                                         <td><?= date('d/m/Y', strtotime($alumno->fecha_nacimiento));  ?></td>
                                         <td> 
                                             <div>
-                                                <a href="eliminarAlumno.php?id=<?= $alumno->id; ?>">Eliminar❌</a>
-                                                <a href="editarAlumno.php?id=<?= $alumno->id; ?>"></a>
-                                                <button>
-                                                    <a href="" style="text-decoration: none; color: sienna;">Editar✍️</a>    
-                                                </button>
+                                                <a href="eliminarAlumno.php?id=<?= $alumno->id; ?>" style="text-decoration: none; color: black;"><button>Eliminar❌</button></a>
+                                                <a href="editarAlumno.php?id=<?= $alumno->id; ?>" style="text-decoration: none; color: black; "><button>Editar✍️</button></a>
                                                 
                                             </div>
                                         </td>
