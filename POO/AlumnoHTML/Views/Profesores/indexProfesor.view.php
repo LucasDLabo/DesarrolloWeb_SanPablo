@@ -28,22 +28,24 @@
         <div class="container d-flex justify-content-center">
             <div class="col-md-11">
                 <a href="../Alumnos/indexAlumno.php"><button>Alumnos 👨‍🎓</button></a>
-                <a href="../Profesores/indexProfesor.php"><button>Profesores👨‍🏫</button></a>
+                <a href="../Materias/indexMateria.php"><button>Materias 📚</button></a>
                 <div class="page-header clearfix">
-                    <h2 class="pull-left">Lista de Materias 📚</h2>
+                    <h2 class="pull-left">Lista de Profesores 👨‍🏫</h2>
                 </div>
-                <table id="listamaterias" class="table table-sm table-striped table-bordered " style="width:100%">
+                <table id="listaprofesores" class="table table-sm table-striped table-bordered " style="width:100%">
                     <thead>
                         <tr>
                             <th>ID</th>
-                            <th>Nombre de materia</th>
+                            <th>Nombre de profesor</th>
+                            <th>Apellido de profesor</th>
+                            <th>Materias que enseña</th>
                             <th>Acción</th>
                         </tr>
                     </thead>
                     <tbody>
                         <nav class="nav justify-content-center  ">
-                            <a class="btn btn-primary" href="createMateria.php" aria-current="page">
-                                Crear materia 📖
+                            <a class="btn btn-primary" href="createProfesor.php" aria-current="page">
+                                Crear Profesor 📖
                             </a>
                         </nav>
 
@@ -51,15 +53,17 @@
 
                         <?php
 
-                        foreach ($materiasDB as $materias) { ?>
+                        foreach ($profesores as $profesor) { ?>
                             <tr>
-                                <td><?= $materias->id; ?></td>
-                                <td><?= $materias->nombre; ?></td>
+                                <td><?= $profesor->id; ?></td>
+                                <td><?= $profesor->nombre; ?></td>
+                                <td><?= $profesor->apellido; ?></td>
+                                <td><?= $profesor->materia_id; ?></td>
 
                                 <td>
                                     <div>
-                                        <a href="eliminarMateria.php?id=<?= $materias->id; ?>" class="btn btn-danger">Eliminar❌</a>
-                                        <a href="editarMateria.php?id=<?= $materias->id; ?>" class="btn btn-info">Editar✍️</a>
+                                        <a href="eliminarProfesor.php?id=<?= $profesor->id; ?>" class="btn btn-danger">Eliminar❌</a>
+                                        <a href="editarProfesor.php?id=<?= $profesor->id; ?>" class="btn btn-info">Editar✍️</a>
                                     </div>
                                 </td>
                             </tr>
@@ -71,7 +75,9 @@
                     <tfoot>
                         <tr>
                             <th>ID</th>
-                            <th>Nombre de materia</th>
+                            <th>Nombre de profesor</th>
+                            <th>Apellido de profesor</th>
+                            <th>Materias que enseña</th>
                             <th>Acción</th>
                         </tr>
                     </tfoot>
@@ -82,7 +88,7 @@
 </body>
 <script>
     $(document).ready(function() {
-        $('#listamaterias').DataTable({
+        $('#listaprofesores').DataTable({
             "columns": [{
                     "width": "5%"
                 }, // Primera columna con un ancho de 100px

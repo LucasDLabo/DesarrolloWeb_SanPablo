@@ -1,6 +1,8 @@
 <?php
 
 require_once 'conexion.php';
+require_once 'profesor.php';
+
 
 class Materia extends Conexion {
 
@@ -56,4 +58,20 @@ class Materia extends Conexion {
         $pre->bind_param("si", $this->nombre, $this->id) ;
         $pre->execute();
     }
+
+    public function profesores(){
+        $this->conectar();
+        $pre = mysqli_prepare($this->con, "SELECT * FROM profesores WHERE materia_id = ?");
+        $pre->bind_param("i", $this->id);
+        $pre->execute();
+
+        $valoresDB = $pre->get_result();
+
+        $materiasDelProfe = [];
+        while ($profesor = $valoresDB->fetch_object(Profesor::class) ){
+            array_push($materiasDelProfe, $profesor);
+        }
+
+        return $materiasDelProfe;
+    } 
 }
