@@ -57,8 +57,8 @@
 
                                 <td>
                                     <div>
-                                        <a href="" class="btn btn-danger">Eliminar❌</a>
-                                        <a href="" class="btn btn-info">Editar✍️</a>
+                                        <a href="eliminarMateria.php?id=<?= $materias->id; ?>" class="btn btn-danger">Eliminar❌</a>
+                                        <a href="editarMateria.php?id=<?= $materias->id; ?>" class="btn btn-info">Editar✍️</a>
                                     </div>
                                 </td>
                             </tr>

@@ -27,4 +27,33 @@ class Materia extends Conexion {
 
         return $materiasDB;
     }
+
+    public static function getById($id){
+
+        $conexion = new Conexion();
+        $conexion->conectar();
+        $pre = mysqli_prepare($conexion->con, "SELECT * FROM materias WHERE id = ?");
+        $pre->bind_param("i", $id);
+        $pre->execute();
+        $valorDB = $pre->get_result();
+
+        $materia = $valorDB->fetch_object(Materia::class);
+
+        return $materia;
+
+    }
+
+    public function delete() {
+        $this->conectar();
+        $pre = mysqli_prepare($this->con, "DELETE FROM materias WHERE id = ?");
+        $pre->bind_param("i", $this->id);
+        $pre->execute();
+    }
+
+    public function update() {
+        $this->conectar();
+        $pre = mysqli_prepare($this->con, "UPDATE materias SET nombre = ? WHERE id = ? ");
+        $pre->bind_param("si", $this->nombre, $this->id) ;
+        $pre->execute();
+    }
 }
