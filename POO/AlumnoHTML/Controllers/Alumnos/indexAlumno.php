@@ -1,6 +1,6 @@
 <?php
 
-require_once "../../Models/alumno.php";
+require_once __DIR__ ."/../../Models/alumno.php";
 
 $alumnos = Alumno::all();
 
@@ -8,5 +8,9 @@ $alumnos = Alumno::all();
 require_once "../../Views/Alumnos/indexAlumno.view.php";
 
 $alumno = Alumno::getById(9);
-echo $alumno->materias()->materias;
+
+foreach ($alumno->materias() as $materia) {
+    echo "<p>$materia->nombre</p>";
+
+}
 

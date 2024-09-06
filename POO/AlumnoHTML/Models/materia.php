@@ -2,6 +2,7 @@
 
 require_once 'conexion.php';
 require_once 'profesor.php';
+require_once 'alumno.php';
 
 
 class Materia extends Conexion {
@@ -77,16 +78,15 @@ class Materia extends Conexion {
 
     public function alumnos(){
         $this->conectar();
-        $pre = mysqli_prepare($this->con, "SELECT alumnos.* FROM alumnos INNER JOIN alumno_materia ON alumno.id = alumno_materia.alumno_id WHERE alumno_materia.materia_id = ? ");
+        $pre = mysqli_prepare($this->con, "SELECT alumnos.* FROM alumnos INNER JOIN alumno_materia ON alumnos.id = alumno_materia.alumno_id WHERE alumno_materia.materia_id = ? ");
         $pre->bind_param("i", $this->id);
         $pre->execute();
         $valoresDB = $pre->get_result();
 
         $alumnos = [];
         while ($alumno = $valoresDB->fetch_object(Alumno::class) ){
-            array_push($alumnos, $alumno);
+            $alumnos[] = $alumno;
         }
-
         return $alumnos;
     }
 }

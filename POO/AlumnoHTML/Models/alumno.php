@@ -66,11 +66,12 @@ class Alumno extends Conexion {
         $pre->execute();
         $valoresDB = $pre->get_result();
 
+        
         $materias = [];
         while ($materia = $valoresDB->fetch_object(Materia::class) ){
-            array_push($materias, $materia);
+            $materias[] = $materia;
         }
-
+        
         return $materias;
     }
 }
