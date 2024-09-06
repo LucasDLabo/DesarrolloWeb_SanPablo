@@ -1,6 +1,8 @@
 <?php
 
 require_once 'conexion.php';
+require_once 'materia.php';
+
 
 class Alumno extends Conexion {
 
@@ -55,5 +57,20 @@ class Alumno extends Conexion {
         $pre = mysqli_prepare($this->con, "UPDATE alumnos SET nombre = ?, apellido = ?, fecha_nacimiento = ? WHERE id = ? ");
         $pre->bind_param("sssi", $this->nombre, $this->apellido, $this->fecha_nacimiento, $this->id) ;
         $pre->execute();
+    }
+
+    public function materias(){
+        $this->conectar();
+        $pre = mysqli_prepare($this->con, "SELECT materias.* FROM materias INNER JOIN alumno_materia ON materias.id = alumno_materia.materia_id WHERE alumno_materia.alumno_id = ? ");
+        $pre->bind_param("i", $this->id);
+        $pre->execute();
+        $valoresDB = $pre->get_result();
+
+        $materias = [];
+        while ($materia = $valoresDB->fetch_object(Materia::class) ){
+            array_push($materias, $materia);
+        }
+
+        return $materias;
     }
 }
