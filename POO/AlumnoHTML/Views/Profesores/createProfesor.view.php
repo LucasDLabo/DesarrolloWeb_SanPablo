@@ -27,8 +27,16 @@
                                 <label for="apellidoProfesor" class="form-label">Apellido del profesor</label>
                                 <input type="text" name="apellidoProfesor" id="apellidoProfesor" class="form-control mb-2" required>
                                 <br>
-                                <label for="materiaID" class="form-label">Materias que enseña</label>
-                                <input type="text" name="materiaID" id="materiaID" class="form-control mb-2" required>
+
+                                <label for="materiaID" class="form-label">Materia</label>
+                                
+                                <select name="materiaID" id="materiaID">
+                                    <option hidden value="">Seleccione una materia</option>
+                                    <?php foreach ($materias as $materia) {?>
+                                        <option value="<?=$materia->id?>"><?= $materia->nombre?></option>
+                                    <?php } ?>
+                                </select>
+
                                 <br>
                                 <button type="submit" name="createProfesor" class="btn btn-primary">Enviar</button>
                             </form>

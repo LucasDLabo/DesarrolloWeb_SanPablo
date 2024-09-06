@@ -18,7 +18,7 @@ class Materia extends Conexion {
     public static function all(){
         $conexion = new Conexion();
         $conexion->conectar();
-        $pre = mysqli_prepare($conexion->con, "SELECT * FROM materias");
+        $pre = mysqli_prepare($conexion->con, "SELECT * FROM materias ORDER BY nombre ASC");
         $pre->execute();
         $valoresDB = $pre->get_result();
 

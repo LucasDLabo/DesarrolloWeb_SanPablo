@@ -1,6 +1,9 @@
 <?php
 
 require_once "../../Models/profesor.php";
+require_once "../../Models/materia.php";
+
+$materias = Materia::all();
 
 if (isset($_POST['createProfesor'])) {
     $nombre = $_POST['nombreProfesor'];

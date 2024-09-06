@@ -58,7 +58,7 @@
                                 <td><?= $profesor->id; ?></td>
                                 <td><?= $profesor->nombre; ?></td>
                                 <td><?= $profesor->apellido; ?></td>
-                                <td><?= $profesor->materia_id; ?></td>
+                                <td><?= $profesor->materia()->nombre; ?></td>
 
                                 <td>
                                     <div>
