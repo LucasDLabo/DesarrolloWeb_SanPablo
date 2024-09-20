@@ -8,9 +8,8 @@
 
 </head>
 <body>
-    <h1>Hola</h1>
     <div class="container mt-3">
-        <h1>Perosnjes </h1>
+        <h1>Personjes </h1>
         <hr>
         <div class="card">
             <div class="card-body">
@@ -34,6 +33,22 @@
                     ?>
                     
                 </div>
+            </div>
+        </div>
+
+        <div class="row mt-3">
+            <div class="col col-12 col-md-6">
+                <form action="" method="">
+                    <input type="hidden" name="prev" value="<?=$personajes->info->prev;?>">
+                    <button type="submit"  class="btn btn-secondary ">Anterior</button>
+                </form>
+                
+            </div>
+            <div class="col col-12 col-md-6">
+            <form action="" method="">
+                    <input type="hidden" name="next" value="<?=$personajes->info->next;?>">
+                    <button type="submit"  class="btn btn-primary ">Siguiente</button>
+                </form>
             </div>
         </div>
     </div>
