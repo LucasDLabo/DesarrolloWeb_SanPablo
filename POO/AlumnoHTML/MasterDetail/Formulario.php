@@ -6,7 +6,35 @@
     <title>Master Detail</title>
 </head>
 <body>
-    <form action="" style="display: flex, flex-direction: column">
+    <?php
+
+    if(isset($_POST['submit'])){
+
+        $detalles = $_POST["item"];
+        
+        $items = [];
+        
+        for ($i=0; $i < count($detalles['code']); $i++) {
+
+            array_push($items, array(
+                'code' => $detalles['code'][$i],
+                'price' => $detalles['price'][$i],
+                'qty' => $detalles['qty'][$i]
+            ));
+        }
+
+        foreach ($items as $item) {
+            echo "Código: ".$item['code']."<br>";
+            echo "Precio: ".$item['price']."<br>";
+            echo "Cantidad: ".$item['qty']."<br>";
+            echo "<hr>";
+        }
+    }
+
+    
+    ?>
+
+    <form action="" method="POST">
         <table>
             <tr>
                 <th><input type="text" placeholder="Código" name="" id="itemCode"></th>
@@ -17,13 +45,6 @@
             </tr>
 
             <tbody id="itemList">
-                <tr>
-                    <td>1</td>
-                    <td>Item</td>
-                    <td>100</td>
-                    <td>2</td>
-                    <td><button>Eliminar❌</button></td>
-                </tr>
             </tbody>
             
         </table>
@@ -64,8 +85,24 @@
             // console.log(` code: ${itemCode}, name: ${itemName}, precio: ${itemPrice}, cantidad: ${itemQty} `);
             // console.log("Guardado");
 
+            var items = "";
+            items += "<tr>";
+            items += "<td> <input name='item[code][]' type='text' value='" +itemCode+ "'> </td>";
+            items += "<td>" +itemName+ "</td>";
+            items += "<td> <input name='item[price][]' type='text' value='" +itemPrice+ "'> </td>";
+            items += "<td> <input name='item[qty][]' type='text' value='" +itemQty+ "'> </td>";
+            items += "<td> <button class='btn-delete'>Eliminar❌</button> </td>";
+            items += "</tr>";
+            
+            $('#itemList').append(items);
+
             clear();
+            $('#itemCode').focus();
         }
+    })
+
+    $("tbody#itemList").on('click', ".btn-delete", function(){
+        $(this).closest('tr').remove();
     })
 
     function clear(){
