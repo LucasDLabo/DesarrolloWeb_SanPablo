@@ -30,7 +30,7 @@
                 <a href="../Materias/indexMateria.php"><button>Materias📚</button></a>
                 <a href="../Profesores/indexProfesor.php"><button>Profesores👨‍🏫</button></a>
                 <div class="page-header clearfix">
-                    <h2 class="pull-left">Lista de Usuarios 👩‍🎓</h2>
+                    <h2 class="pull-left">Lista de Alumnos 👩‍🎓</h2>
                 </div>
                 <table id="listaUsuarios" class="table table-sm table-striped table-bordered" style="width:100%">
                     <nav class="nav justify-content-center  ">
@@ -75,9 +75,9 @@
                                 <td><?= date('d/m/Y', strtotime($alumno->fecha_nacimiento));  ?></td>
                                 <td>
                                     <div>
+                                        <a href="" class="btn btn-info ">Ver Materias📖</a>
                                         <a href="eliminarAlumno.php?id=<?= $alumno->id; ?>" class="btn btn-danger">Eliminar❌</a>
                                         <a href="editarAlumno.php?id=<?= $alumno->id; ?>" class="btn btn-info">Editar✍️</a>
-
                                     </div>
                                 </td>
                             </tr>
@@ -108,7 +108,7 @@
                 null,
                 null,
                 null,
-                {"width": "22%"}
+                {"width": "40%"}
             ]
         });
     });

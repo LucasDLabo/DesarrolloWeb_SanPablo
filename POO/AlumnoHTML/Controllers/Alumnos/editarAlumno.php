@@ -15,11 +15,11 @@ if (isset($_POST['submitEdit'])) {
     $alumno->fecha_nacimiento = $fecha_nacimineto;
     $alumno->update();
 
-    header('Location: ../../Controllers/Alumnos/indexAlumno.php');
+    header('Location: ../../Controllers/Alumnos/index.php');
 }else{
     $alumno = Alumno::getById($id);
     if($alumno){
-        require_once "../../Views/Alumnos/editarAlumno.view.php";
+        require_once "../../Views/Alumnos/editar.view.php";
     }
 }
 

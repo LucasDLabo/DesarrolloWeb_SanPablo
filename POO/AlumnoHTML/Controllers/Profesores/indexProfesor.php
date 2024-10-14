@@ -8,5 +8,5 @@ $profesores = Profesor::all();
 
 
 
-require_once "../../Views/Profesores/indexProfesor.view.php";
+require_once "../../Views/Profesores/index.view.php";
 

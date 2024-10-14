@@ -9,8 +9,8 @@ if (isset($_POST['createMateria'])){
     $materia->nombre = $nombreMateria;
     $materia->create();
 
-    header('Location: ../../Controllers/Materias/indexMateria.php');
+    header('Location: ../../Controllers/Materias/index.php');
 }
 
 
-require_once "../../Views/Materias/createMateria.view.php";
+require_once "../../Views/Materias/create.view.php";

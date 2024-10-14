@@ -16,8 +16,8 @@ if (isset($_POST['createProfesor'])) {
     $profesor->materia_id = $materiaID;
     $profesor->create();
 
-    header('Location: ../../Controllers/Profesores/indexProfesor.php');
+    header('Location: ../../Controllers/Profesores/index.php');
 
 }
 
-require_once "../../Views/Profesores/createProfesor.view.php";
+require_once "../../Views/Profesores/create.view.php";

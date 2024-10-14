@@ -12,11 +12,11 @@ if (isset($_POST['submitEdit2'])) {
 
     $materia->update();
 
-    header('Location: ../../Controllers/Materias/indexMateria.php');
+    header('Location: ../../Controllers/Materias/index.php');
 }else{
     $materia = Materia::getById($id);
     if($materia){
-        require_once "../../Views/Materias/editarMateria.view.php";
+        require_once "../../Views/Materias/editar.view.php";
     }
 }
 

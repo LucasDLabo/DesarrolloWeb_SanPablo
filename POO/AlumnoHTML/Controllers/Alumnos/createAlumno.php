@@ -1,6 +1,9 @@
 <?php
 
 require_once "../../Models/alumno.php";
+require_once "../../Models/materia.php";
+
+$materias = Materia::all();
 
 if (isset($_POST['submit'])) {
     $nombre = $_POST['nombre'];
@@ -13,8 +16,8 @@ if (isset($_POST['submit'])) {
     $alumno->fecha_nacimiento = $fecha_nacimineto;
     $alumno->create();
 
-    header('Location: ../../Controllers/Alumnos/indexAlumno.php');
+    header('Location: ../../Controllers/Alumnos/index.php');
 
 }
 
-require_once "../../Views/Alumnos/createAlumno.view.php";
+require_once "../../Views/Alumnos/create.view.php";

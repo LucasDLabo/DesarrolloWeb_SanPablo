@@ -15,11 +15,11 @@ if (isset($_POST['submitEdit3'])) {
     $profesor->materia_id = $materiaID;
     $profesor->update();
 
-    header('Location: ../../Controllers/Profesores/indexProfesor.php');
+    header('Location: ../../Controllers/Profesores/index.php');
 }else{
     $profesor = Profesor::getById($id);
     if($profesor){
-        require_once "../../Views/Profesores/editarProfesor.view.php";
+        require_once "../../Views/Profesores/editar.view.php";
     }
 }
 
