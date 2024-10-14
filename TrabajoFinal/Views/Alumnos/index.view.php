@@ -34,7 +34,7 @@
                 </div>
                 <table id="listaUsuarios" class="table table-sm table-striped table-bordered" style="width:100%">
                     <nav class="nav justify-content-center  ">
-                        <a class="btn btn-primary" href="createAlumno.php" aria-current="page">
+                        <a class="btn btn-primary" href="create.php" aria-current="page">
                             Crear alumno 📖
                         </a>
                     </nav>
@@ -75,9 +75,9 @@
                                 <td><?= date('d/m/Y', strtotime($alumno->fecha_nacimiento));  ?></td>
                                 <td>
                                     <div>
-                                        <a href="" class="btn btn-info ">Ver Materias📖</a>
-                                        <a href="eliminarAlumno.php?id=<?= $alumno->id; ?>" class="btn btn-danger">Eliminar❌</a>
-                                        <a href="editarAlumno.php?id=<?= $alumno->id; ?>" class="btn btn-info">Editar✍️</a>
+                                        <a href="showSubject.php?id=<?= $alumno->id; ?>" class="btn btn-info ">Ver Materias📖</a>
+                                        <a href="eliminar.php?id=<?= $alumno->id; ?>" class="btn btn-danger">Eliminar❌</a>
+                                        <a href="editar.php?id=<?= $alumno->id; ?>" class="btn btn-info">Editar✍️</a>
                                     </div>
                                 </td>
                             </tr>

@@ -27,7 +27,7 @@
     <div class="bs-example">
         <div class="container d-flex justify-content-center">
             <div class="col-md-11">
-                <a href="../Alumnos/indexAlumno.php"><button>Alumnos 👨‍🎓</button></a>
+                <a href="../Alumnos/index.php"><button>Alumnos 👨‍🎓</button></a>
                 <a href="../Materias/indexMateria.php"><button>Materias 📚</button></a>
                 <div class="page-header clearfix">
                     <h2 class="pull-left">Lista de Profesores 👨‍🏫</h2>
@@ -36,8 +36,8 @@
                     <thead>
                         <tr>
                             <th>ID</th>
-                            <th>Nombre de profesor</th>
-                            <th>Apellido de profesor</th>
+                            <th>Nombre</th>
+                            <th>Apellido</th>
                             <th>Materias que enseña</th>
                             <th>Acción</th>
                         </tr>
@@ -75,9 +75,9 @@
                     <tfoot>
                         <tr>
                             <th>ID</th>
-                            <th>Nombre de profesor</th>
-                            <th>Apellido de profesor</th>
-                            <th>Materias que enseña</th>
+                            <th>Nombre</th>
+                            <th>Apellido</th>
+                            <th>Materia que enseña</th>
                             <th>Acción</th>
                         </tr>
                     </tfoot>

@@ -7,7 +7,7 @@
 </head>
 <body>
     <button>
-        <a href="indexAlumno.php" style="text-decoration: none; color:black; font-size:17px">Volver atrás ↩️</a>
+        <a href="index.php" style="text-decoration: none; color:black; font-size:17px">Volver atrás ↩️</a>
     </button>
 
     <h1>Ingrese los nuevos datos del alumno✍ - ID(<?= $alumno->id?>)</h1>
@@ -22,7 +22,19 @@
         <label for="date">Fecha de nacimiento</label>
         <input type="date" name="date" id="date" value="<?= $alumno->fecha_nacimiento?>">
         <br>
-        <button type="submit" name="submitEdit">Actualizar</button>
+        <b>Materias:</b>
+        <?php 
+        $alumnoMaterias = $alumno->materias();
+        $idMaterias = array_map(function($materia){
+            return $materia->id;
+        }, $alumnoMaterias);
+        foreach ($materias as $materia) {?>
+        <br>
+            <input type="checkbox" name="materia[]" id="" value="<?=$materia->id?>"<?= in_array($materia->id, $idMaterias) ? 'checked' : ''; ?> >   <?= $materia->nombre?>
+        <?php } ?>
+
+        <br>
+        <button type="submit" name="submitEdit">Actualizar</button> 
     </form>
 </body>
 </html>

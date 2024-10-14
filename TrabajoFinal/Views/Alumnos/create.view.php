@@ -11,7 +11,7 @@
 
 <body>
     <button>
-        <a href="indexAlumno.php" style="text-decoration: none; color:black; font-size:17px">Volver atrás ↩️</a>
+        <a href="index.php" style="text-decoration: none; color:black; font-size:17px">Volver atrás ↩️</a>
     </button>
     
 
@@ -30,15 +30,19 @@
                                 <label for="date" class="form-label">Fecha de nacimiento</label>
                                 <input type="date" name="date" id="date" class="form-control mb-2" required>
 
-                                <label for="materiaID" class="form-label">Materia</label>
-                                
+                                <?php foreach ($materias as $materia) {?>
+                                    <input type="checkbox" name="materia[]" id="" value="<?=$materia->id?>"> <?= $materia->nombre?>
+                                <?php } ?>
+
+                                <!-- <label for="materiaID" class="form-label">Materia</label>
                                 <select name="materiaID" id="materiaID">
                                     <option hidden value="">Seleccione una materia</option>
                                     <?php foreach ($materias as $materia) {?>
+                                        
                                         <option value="<?=$materia->id?>"><?= $materia->nombre?></option>
                                     <?php } ?>
-                                </select>
-
+                                </select> -->
+                                <br>
                                 <button type="submit" name="submit" class="btn btn-primary">Enviar</button>
                             </form>
                         </div>

@@ -13,6 +13,8 @@ class Alumno extends Conexion {
         $pre = mysqli_prepare($this->con, "INSERT INTO alumnos (nombre, apellido, fecha_nacimiento) VALUES (?, ?, ?)");
         $pre->bind_param("sss", $this->nombre, $this->apellido, $this->fecha_nacimiento);
         $pre->execute();
+
+        return $this->con->insert_id;
     }
 
     public static function all() {
@@ -29,6 +31,7 @@ class Alumno extends Conexion {
 
         return $alumnos;
     }
+
 
     public static function getById($id){
 
@@ -59,6 +62,21 @@ class Alumno extends Conexion {
         $pre->execute();
     }
 
+    public function insertar_materias($alumno_id, $materia_id){
+        $this->conectar();
+        $pre = mysqli_prepare($this->con, "INSERT INTO alumno_materia (alumno_id, materia_id) VALUES (?, ?)");
+        $pre->bind_param("ii", $alumno_id, $materia_id);
+        $pre->execute();
+
+    }
+
+    public function delete_materias($alumno_id){
+        $this->conectar();
+        $pre = mysqli_prepare($this->con, "DELETE FROM alumno_materia WHERE alumno_id = ?");
+        $pre->bind_param("i", $alumno_id);
+        $pre->execute();
+    }
+
     public function materias(){
         $this->conectar();
         $pre = mysqli_prepare($this->con, "SELECT materias.* FROM materias INNER JOIN alumno_materia ON materias.id = alumno_materia.materia_id WHERE alumno_materia.alumno_id = ? ");
@@ -66,7 +84,6 @@ class Alumno extends Conexion {
         $pre->execute();
         $valoresDB = $pre->get_result();
 
-        
         $materias = [];
         while ($materia = $valoresDB->fetch_object(Materia::class) ){
             $materias[] = $materia;
