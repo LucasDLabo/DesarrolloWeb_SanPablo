@@ -10,9 +10,8 @@
 </head>
 
 <body>
-    <button>
-        <a href="indexProfesor.php" style="text-decoration: none; color:black; font-size:17px">Volver atrás ↩️</a>
-    </button>
+    <a href="indexProfesor.php" style="text-decoration: none; color:black; font-size:17px"><button>Volver atrás ↩️</button></a>
+
     
 
     <div class="container d-flex justify-content-center mt-5">

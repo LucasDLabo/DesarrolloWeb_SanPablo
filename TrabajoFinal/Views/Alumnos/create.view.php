@@ -10,9 +10,8 @@
 </head>
 
 <body>
-    <button>
-        <a href="index.php" style="text-decoration: none; color:black; font-size:17px">Volver atrás ↩️</a>
-    </button>
+    <a href="index.php" style="text-decoration: none; color:black; font-size:17px"><button>Volver atrás ↩️</button></a>
+
     
 
     <div class="container d-flex justify-content-center mt-5">
@@ -31,7 +30,10 @@
                                 <input type="date" name="date" id="date" class="form-control mb-2" required>
 
                                 <?php foreach ($materias as $materia) {?>
-                                    <input type="checkbox" name="materia[]" id="" value="<?=$materia->id?>"> <?= $materia->nombre?>
+                                    <label>
+                                        <input type="checkbox" name="materia[]" id="" value="<?=$materia->id?>"> 
+                                        <?= $materia->nombre?>
+                                    </label>
                                 <?php } ?>
 
                                 <!-- <label for="materiaID" class="form-label">Materia</label>

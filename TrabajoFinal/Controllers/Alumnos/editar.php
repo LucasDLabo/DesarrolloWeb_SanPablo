@@ -24,7 +24,7 @@ if (isset($_POST['submitEdit'])) {
         $alumno->insertar_materias($id ,$materia);
     }
 
-    //header('Location: ../../Controllers/Alumnos/index.php');
+    header('Location: ../../Controllers/Alumnos/index.php');
 }else{
     $alumno = Alumno::getById($id);
     if($alumno){

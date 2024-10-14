@@ -6,9 +6,8 @@
     <title>Editar Alumno</title>
 </head>
 <body>
-    <button>
-        <a href="index.php" style="text-decoration: none; color:black; font-size:17px">Volver atrás ↩️</a>
-    </button>
+    <a href="index.php" style="text-decoration: none; color:black; font-size:17px"><button>Volver atrás ↩️</button></a>
+
 
     <h1>Ingrese los nuevos datos del alumno✍ - ID(<?= $alumno->id?>)</h1>
 
