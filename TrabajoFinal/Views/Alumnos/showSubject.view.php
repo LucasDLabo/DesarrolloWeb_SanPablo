@@ -20,7 +20,7 @@
                 }
         }else{ ?>
             <p>El alumno no cuenta con materias asignadas.</p>
-            <button><a href="">Asignar Materias</a></button>
+            <button><a href="editar.php?id=<?= $alumno->id; ?>">Asignar Materias</a></button>
         <?php
         };
         ?>

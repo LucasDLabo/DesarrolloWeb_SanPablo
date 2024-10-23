@@ -10,7 +10,7 @@
 </head>
 
 <body>
-    <a href="indexProfesor.php" style="text-decoration: none; color:black; font-size:17px"><button>Volver atrás ↩️</button></a>
+    <a href="index.php" style="text-decoration: none; color:black; font-size:17px"><button>Volver atrás ↩️</button></a>
 
     
 

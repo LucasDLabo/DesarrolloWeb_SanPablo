@@ -44,7 +44,7 @@
                     </thead>
                     <tbody>
                         <nav class="nav justify-content-center  ">
-                            <a class="btn btn-primary" href="createProfesor.php" aria-current="page">
+                            <a class="btn btn-primary" href="create.php" aria-current="page">
                                 Crear Profesor 📖
                             </a>
                         </nav>
@@ -62,8 +62,8 @@
 
                                 <td>
                                     <div>
-                                        <a href="eliminarProfesor.php?id=<?= $profesor->id; ?>" class="btn btn-danger">Eliminar❌</a>
-                                        <a href="editarProfesor.php?id=<?= $profesor->id; ?>" class="btn btn-info">Editar✍️</a>
+                                        <a href="eliminar.php?id=<?= $profesor->id; ?>" class="btn btn-danger">Eliminar❌</a>
+                                        <a href="editar.php?id=<?= $profesor->id; ?>" class="btn btn-info">Editar✍️</a>
                                     </div>
                                 </td>
                             </tr>

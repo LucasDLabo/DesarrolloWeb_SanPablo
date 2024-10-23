@@ -17,11 +17,11 @@
     <h2 class="text-2xl font-bold mb-4">Lista de Alumnos 👩‍🎓</h2>
     <table id="listaAlumno" class="table-auto w-full">
         <nav>
-        <a href="../Materias/indexMateria.php"><button>Materias📚</button></a>
-        <a href="../Profesores/indexProfesor.php"><button>Profesores👨‍🏫</button></a>
+        <a href="../Materias/indexMateria.php"><button  class="bg-gray-300 mb-5">Materias📚</button></a>
+        <a href="../Profesores/index.php"><button>Profesores👨‍🏫</button></a>
         </nav>
-        <div>
-            <a href="" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+        <div class="mb-5">
+            <a href="create.php" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
                 Crear alumno 📖
             </a>
         </div>
