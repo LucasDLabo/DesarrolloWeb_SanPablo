@@ -28,7 +28,7 @@
         <div class="container d-flex justify-content-center">
             <div class="col-md-11">
                 <a href="../Alumnos/index.php"><button>Alumnos 👨‍🎓</button></a>
-                <a href="../Materias/indexMateria.php"><button>Materias 📚</button></a>
+                <a href="../Materias/index.php"><button>Materias 📚</button></a>
                 <div class="page-header clearfix">
                     <h2 class="pull-left">Lista de Profesores 👨‍🏫</h2>
                 </div>

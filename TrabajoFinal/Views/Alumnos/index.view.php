@@ -17,7 +17,7 @@
     <h2 class="text-2xl font-bold mb-4">Lista de Alumnos 👩‍🎓</h2>
     <table id="listaAlumno" class="table-auto w-full">
         <nav>
-        <a href="../Materias/indexMateria.php"><button  class="bg-gray-300 mb-5">Materias📚</button></a>
+        <a href="../Materias/index.php"><button  class="bg-gray-300 mb-5">Materias📚</button></a>
         <a href="../Profesores/index.php"><button>Profesores👨‍🏫</button></a>
         </nav>
         <div class="mb-5">
