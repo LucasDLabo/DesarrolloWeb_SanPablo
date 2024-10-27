@@ -139,7 +139,7 @@
         });
 
         function confirmar(nombre) {
-            return confirm("⚠️ Atencion ⚠️ \n ¿Estás seguro de que deseas eliminar al alumno " + nombre + "? \n Está acción no se puede deshacer.");
+            return confirm("⚠️ Atención ⚠️ \n ¿Estás seguro de que deseas eliminar al alumno " + nombre + "? \n Está acción no se puede deshacer.");
         }
     </script>
 
