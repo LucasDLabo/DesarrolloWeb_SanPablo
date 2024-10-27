@@ -5,7 +5,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Crear Alumno</title>
+    <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/habibmhamadi/multi-select-tag@3.1.0/dist/css/multi-select-tag.css">
+
     <script src="https://cdn.tailwindcss.com"></script>
+
 </head>
 
 <body>
@@ -34,6 +38,7 @@
                         <h2 class="text-center text-gray-600 font-bold text-2xl uppercase">Ingrese los datos del Alumno
                             ✍</h2>
                         <hr class="my-5 border-3 border-solid border-indigo-500">
+                        
                         <form action="" method="post">
                             <div class="mb-5">
                                 <label for="nombre" class="block mb-2 font-bold text-gray-600">Nombre</label>
@@ -55,19 +60,15 @@
                                 <input type="date" id="date" name="date" placeholder="01-01-2024"
                                     class="border border-indigo-700 shadow p-3 w-full rounded ">
                                 <p class="text-sm text-indigo-700 mt-2">Twitter username is required</p>
-                            </div>                                             
+                            </div>
 
                             <div class="mb-5">
                                 <label for="materia" class="block mb-2 font-bold text-gray-600">Materias</label>
-                                <select name="materia" id="materia"
-                                    class="border border-indigo-700 shadow p-3 w-full rounded ">
 
-                                    <option hidden value="">Seleccione una materia</option>
-
+                                <select name="materia[]" id="materia" multiple>
                                     <?php foreach ($materias as $materia) {?>
                                     <option value="<?= $materia->id ?>"><?= $materia->nombre ?></option>
                                     <?php } ?>
-
                                 </select>
                             </div>
 
@@ -77,7 +78,7 @@
 
                                 <button
                                     class=" w-1/4 bg-indigo-500 hover:bg-indigo-700 text-white font-bold p-4 rounded-lg"
-                                    type="submit">Crear</button>
+                                    type="submit" name="submit">Crear</button>
                             </div>
                         </form>
                     </div>
@@ -93,46 +94,12 @@
         </div>
     </footer>
 
-    <div class="">
-        <div class=" ">
-            <div class="">
+    
 
-                <h2>INGRESE LOS DATOS DEL ALUMNO✍</h2>
-
-                <div class="">
-
-                    <form action="" method="post">
-
-                        <label for="nombre" class="form-label">Nombre</label>
-                        <input type="text" name="nombre" id="nombre" class="form-control mb-2" required>
-
-                        <label for="apellido" class="form-label">Apelido</label>
-                        <input type="text" name="apellido" id="apellido" class="form-control mb-2" required>
-
-                        <label for="date" class="form-label">Fecha de nacimiento</label>
-                        <input type="date" name="date" id="date" class="form-control mb-2" required>
-
-                        <?php foreach ($materias as $materia) {?>
-                        <label>
-                            <input type="checkbox" name="materia[]" id="" value="<?= $materia->id ?>">
-                            <?= $materia->nombre ?>
-                        </label>
-                        <?php } ?>
-
-                        <br>
-                        <button type="submit" name="submit" class="">Enviar</button>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
-
-
-
-
-
-    <script src="./node_modules/preline/dist/preline.js"></script>
-
+    <script src="https://cdn.jsdelivr.net/gh/habibmhamadi/multi-select-tag@3.1.0/dist/js/multi-select-tag.js"></script>
+    <script>
+    new MultiSelectTag('materia')  // id
+    </script>
 </body>
 
 </html>
