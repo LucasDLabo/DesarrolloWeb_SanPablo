@@ -28,7 +28,7 @@
         <div class="flex gap-x-4 ">
 
             <div
-                class="w-1/6 flex flex-col bg-indigo-200 justify-center items-center shadow-[inset_2px_5px_8px_0px_rgba(0,0,0,0.3)]">
+                class="w-1/6 flex flex-col bg-indigo-200 justify-center items-center shadow-[inset_-5px_7px_8px_0px_rgba(0,0,0,0.3)]">
 
                 <div class="flex flex-col gap-5 w-full items-center">
                     <span
@@ -47,7 +47,7 @@
 
             </div>
 
-            <div class="flex-grow my-12">
+            <div class="flex-grow my-12 ml-8">
                 <div class="mb-5">
                     <h1 class="text-3xl font-bold mb-4">Lista de Alumnos 👩‍🎓</h1>
 

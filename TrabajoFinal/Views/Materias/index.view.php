@@ -23,7 +23,7 @@
     <div class="container mx-full w-12/12">
 
         <div class="flex gap-x-4">
-            <div class="w-1/6 flex flex-col bg-indigo-200 justify-center items-center shadow-[inset_2px_5px_8px_0px_rgba(0,0,0,0.3)]">
+            <div class="w-1/6 flex flex-col bg-indigo-200 justify-center items-center shadow-[inset_-5px_7px_8px_0px_rgba(0,0,0,0.3)]">
 
                 <div class="flex flex-col gap-5 w-full items-center">
                     <a href="../Alumnos/index.php"
