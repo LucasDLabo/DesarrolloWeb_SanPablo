@@ -86,12 +86,12 @@
                             <td class="border py-2 text-center h-6">
                                 <div>
 
-                                    <a href="editar.php?id=<?= $alumno->id ?>"
+                                    <a href="editar.php?id=<?= $alumno->id ?>"  
                                         title="Editar Alumno <?= $alumno->nombre . ' ' . $alumno->apellido ?>"
                                         class="bg-teal-600 hover:bg-teal-900 text-white text-center font-semibold py-1 px-4 mx-2 rounded">
                                         ✍Editar
                                     </a>
-                                    <a href="eliminar.php?id=<?= $alumno->id ?>"
+                                    <a href="eliminar.php?id=<?= $alumno->id ?>" onclick="return confirmar('<?= $alumno->nombre . ' ' . $alumno->apellido ?>')"
                                         title="Eliminar Alumno <?= $alumno->nombre . ' ' . $alumno->apellido ?>"
                                         class="bg-rose-700 hover:bg-rose-900 text-white text-center font-semibold py-1 px-4 mx-2 rounded">Eliminar❌
                                     </a>
@@ -137,6 +137,10 @@
                 // Add any customization options here
             });
         });
+
+        function confirmar(nombre) {
+            return confirm("⚠️ Atencion ⚠️ \n ¿Estás seguro de que deseas eliminar al alumno " + nombre + "? \n Está acción no se puede deshacer.");
+        }
     </script>
 
 </body>
