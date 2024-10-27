@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,72 +11,125 @@
     <link rel="stylesheet" href="https://cdn.datatables.net/2.1.8/css/dataTables.tailwindcss.css">
 
 </head>
+<header>
+    <nav class=" bg-blue-600">
+        barra de navegacion
+    </nav>
+</header>
+
 <body>
 
-<div class="container mx-auto px-4 sm:px-6 lg:px-8 py-8">
-    
-    <h2 class="text-2xl font-bold mb-4">Lista de Alumnos 👩‍🎓</h2>
-    <table id="listaAlumno" class="table-auto w-full">
-        <nav>
-        <a href="../Materias/index.php"><button  class="bg-gray-300 mb-5">Materias📚</button></a>
-        <a href="../Profesores/index.php"><button>Profesores👨‍🏫</button></a>
-        </nav>
+    <div class="container my-10 mx-auto w-12/12 ">
+
+
+
         <div class="mb-5">
-            <a href="create.php" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
-                Crear alumno 📖
+            <h1 class="text-3xl font-bold mb-4">Lista de Alumnos 👩‍🎓</h1>
+
+            <a href="create.php" class=" bg-emerald-800 hover:bg-emerald-900 text-white font-bold py-2 px-4 rounded">
+                Crear Alumno 📖
             </a>
         </div>
-        <thead>
-            <tr>
-                <th class="px-4 py-2">ID</th>
-                <th class="px-4 py-2">Nombre</th>
-                <th class="px-4 py-2">Apellido</th>
-                <th class="px-4 py-2">Fecha de Nacimiento</th>
-                <th class="px-4 py-2">Acción</th>
-            </tr>
-        </thead>
-        <tbody>
-            <?php foreach ($alumnos as $alumno) { ?>
-                            <tr>
-                                <td class="border px-4 py-2"><?= $alumno->id; ?></td>
-                                <td class="border px-4 py-2"><?= $alumno->nombre; ?></td>
-                                <td class="border px-4 py-2"><?= $alumno->apellido; ?></td>
-                                <td class="border px-4 py-2"><?= date('d/m/Y', strtotime($alumno->fecha_nacimiento));  ?></td>
-                                <td class="border px-4 py-2">
-                                    <div>
-                                        <a href="showSubject.php?id=<?= $alumno->id; ?>" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Ver Materias📖</a>
-                                        <a href="eliminar.php?id=<?= $alumno->id; ?>" class="bg-red-800 hover:bg-red-900 text-white font-bold py-2 px-4 rounded">Eliminar❌</a>
-                                        <a href="editar.php?id=<?= $alumno->id; ?>" class="bg-yellow-600 hover:bg-yellow-900 text-white font-bold py-2 px-4 rounded"> Editar✍️</a>
-                                    </div>
-                                </td>
-                            </tr>
+        <div class="flex gap-4 ">
+
+            <div class="w-1/6 flex flex-col bg-indigo-200 justify-center items-center">
+
+                <div class="flex flex-col gap-5 w-full items-center">
+                    <span class=" bg-indigo-500 rounded-md text-white w-4/5 text-center py-1 font-semibold">
+                        Alumnos👩‍🎓
+                    </span>
+                    <a href="../Profesores/index.php"
+                        class=" border-2 border-transparent text-black w-4/5 text-center py-1 font-semibold hover:border-solid hover:border-2 hover:border-white rounded">
+                        Profesores 👨‍🏫
+                    </a>
+                    <a href="../Materias/index.php"
+                        class=" border-2 border-transparent text-black w-4/5 text-center py-1 font-semibold hover:border-solid hover:border-2 hover:border-white rounded">
+                        Materias 📚
+                    </a>
+                </div>
+
+            </div>
+
+            <div class="flex-grow">
+                <table id="listaAlumno" class="table-auto w-full border-solid border-2 border-gray-400 rounded stripe">
+
+                    <thead>
+                        <tr>
+                            <th class=" w-1/12 text-xs ">ID</th>
+                            <th class=" w-2/12 text-xs ">Nombre</th>
+                            <th class=" w-2/12 text-xs ">Apellido</th>
+                            <th class=" w-1/12 text-xs ">Fecha nac.</th>
+                            <th class=" w-2/12 text-xs ">Materias</th>
+                            <th class=" w-4/12 text-xs ">Acción</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php foreach ($alumnos as $alumno) { ?>
+                        <tr>
+                            <td class="border text-center h-6"><?= $alumno->id ?></td>
+                            <td class="border h-6"><?= $alumno->nombre ?></td>
+                            <td class="border h-6"><?= $alumno->apellido ?></td>
+                            <td class="border h-6"><?= date('d/m/Y', strtotime($alumno->fecha_nacimiento)) ?></td>
+                            <td class="border text-center h-6">
+                                <div class=" ">
+                                    <a href="showSubject.php?id=<?= $alumno->id ?> " title="Ver Materias de <?= $alumno->nombre . " " . $alumno->apellido ?>"
+                                        class="bg-blue-500 hover:bg-blue-700 text-white font-semibold py-1 px-4 rounded">Ver 📖</a>
+                                </div>
+                            </td>
+                            <td class="border py-2 text-center h-6">
+                                <div>
+
+                                    <a href="editar.php?id=<?= $alumno->id ?>" title="Editar Alumno <?= $alumno->nombre . " " . $alumno->apellido ?>"
+                                        class="bg-teal-600 hover:bg-teal-900 text-white text-center font-semibold py-1 px-4 mx-2 rounded">
+                                        ✍Editar
+                                    </a>
+                                    <a href="eliminar.php?id=<?= $alumno->id ?>" title="Eliminar Alumno <?= $alumno->nombre . " " . $alumno->apellido ?>"
+                                        class="bg-rose-700 hover:bg-rose-900 text-white text-center font-semibold py-1 px-4 mx-2 rounded">Eliminar❌
+                                    </a>
+
+                                </div>
+                            </td>
+                        </tr>
                         <?php }
 
-                        ?>
-        </tbody>
-        <tfoot>
-            <tr>
-                <th class="px-4 py-2">ID</th>
-                <th class="px-4 py-2">Nombre</th>
-                <th class="px-4 py-2">Apellido</th>
-                <th class="px-4 py-2">Fecha de Nacimiento</th>
-                <th class="px-4 py-2">Acción</th>
-            </tr>     
-        </tfoot>
-    </table>
-</div>
+                ?>
+                    </tbody>
+                    <tfoot>
+                        <tr>
+                            <th class=" text-xs ">ID</th>
+                            <th class=" text-xs ">Nombre</th>
+                            <th class=" text-xs ">Apellido</th>
+                            <th class=" text-xs ">Fecha nac.</th>
+                            <th class=" text-xs ">Materias</th>
+                            <th class=" text-xs ">Acción</th>
+                        </tr>
+                    </tfoot>
+                </table>
+            </div>
 
-<link rel="stylesheet" href="https://cdn.datatables.net/1.10.25/css/jquery.dataTables.min.css">
-<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-<script src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.min.js"></script>
+        </div>
 
-<script>
-    $(document).ready(function() {
-        $('#listaAlumno').DataTable({
-            // Add any customization options here
+
+    </div>
+
+    <footer>
+        <div class=" bg-slate-600">
+            Footer
+        </div>
+    </footer>
+
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.25/css/jquery.dataTables.min.css">
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.min.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            $('#listaAlumno').DataTable({
+                // Add any customization options here
+            });
         });
-    });
-</script>
+    </script>
 
 </body>
+
 </html>

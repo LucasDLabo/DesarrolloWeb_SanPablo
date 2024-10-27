@@ -4,95 +4,116 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>📚 Materias </title>
-    <!-- DataTables CSS library -->
-
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.css" />
-    <link rel="stylesheet" href="https://cdn.datatables.net/1.11.3/css/dataTables.bootstrap4.min.css" />
-
-    <link rel="stylesheet" href="//stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-    <script src="//code.jquery.com/jquery-3.5.1.js"></script>
-    <!-- DataTables JS library -->
-    <script type="text/javascript" src="//cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"></script>
-    <!-- DataTables JBootstrap -->
-    <script type="text/javascript" src="//cdn.datatables.net/1.11.3/js/dataTables.bootstrap4.min.js"></script>
-    <style type="text/css">
-        .bs-example {
-            margin: 20px;
-        }
-    </style>
+    <title>📚 Materias</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Incluye DataTables CSS -->
+    <link rel="stylesheet" href="https://cdn.datatables.net/2.1.8/css/dataTables.tailwindcss.css">
 </head>
+<header>
+    <nav class=" bg-blue-600">
+        barra de navegacion
+    </nav>
+</header>
 
 <body>
-    <div class="bs-example">
-        <div class="container d-flex justify-content-center">
-            <div class="col-md-11">
-                <a href="../Alumnos/index.php"><button>Alumnos 👨‍🎓</button></a>
-                <a href="../Profesores/indexProfesor.php"><button>Profesores👨‍🏫</button></a>
-                <div class="page-header clearfix">
-                    <h2 class="pull-left">Lista de Materias 📚</h2>
+    <div class="container my-10 mx-auto w-12/12">
+
+        <div class="mb-5">
+            <h1 class="text-3xl font-bold mb-4">Lista de Materias📚 </h1>
+
+            <a href="create.php" class=" bg-emerald-800 hover:bg-emerald-900 text-white font-bold py-2 px-4 rounded">
+                Crear Materia 📖
+            </a>
+        </div>
+
+        <div class="flex gap-4">
+            <div class="w-1/6 flex flex-col bg-indigo-200 justify-center items-center">
+
+                <div class="flex flex-col gap-5 w-full items-center">
+                    <a href="../Alumnos/index.php"
+                        class=" border-2 border-transparent text-black w-4/5 text-center py-1 font-semibold hover:border-solid hover:border-2 hover:border-white rounded">
+                        Alumnos👩‍🎓
+                    </a>
+                    <a href="../Profesores/index.php"
+                        class=" border-2 border-transparent text-black w-4/5 text-center py-1 font-semibold hover:border-solid hover:border-2 hover:border-white rounded">
+                        Profesores 👨‍🏫
+                    </a>
+                    <span class="bg-indigo-500 rounded-md text-white w-4/5 text-center py-1 font-semibold ">
+                        Materias 📚
+                    </span>
                 </div>
-                <table id="listamaterias" class="table table-sm table-striped table-bordered " style="width:100%">
+
+            </div>
+
+            <div class="flex-grow">
+                <table id="listaMaterias"
+                    class="table-auto w-full border-solid border-2 border-gray-400 rounded stripe">
+
                     <thead>
                         <tr>
-                            <th>ID</th>
-                            <th>Nombre de materia</th>
-                            <th>Acción</th>
+                            <th class=" w-1/12 text-xs ">ID</th>
+                            <th class=" w-3/12 text-xs ">Nombre</th>
+                            <th class=" w-4/12 text-xs ">Información</th>
+                            <th class=" w-4/12 text-xs ">Acción</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <nav class="nav justify-content-center  ">
-                            <a class="btn btn-primary" href="createMateria.php" aria-current="page">
-                                Crear materia 📖
-                            </a>
-                        </nav>
+                        <?php foreach ($materiasDB as $materias) { ?>
+                        <tr>
+                            <td class="border text-center h-6"><?= $materias->id ?></td>
+                            <td class="border h-6"><?= $materias->nombre ?></td>
+                            <td class="border h-6">Aca va mas info</td>
+                            <td class="border py-2 text-center h-6">
+                                <div>
 
+                                    <a href="editar.php?id=<?= $materias->id ?>"
+                                        class= " bg-teal-600 hover:bg-teal-900 text-white text-center font-semibold py-1 px-4 mx-2 rounded">
+                                        ✍Editar
+                                    </a>
+                                    <a href="eliminar.php?id=<?= $materias->id ?>"
+                                        class=" bg-rose-700 hover:bg-rose-900 text-white text-center font-semibold py-1 px-4 mx-2 rounded">Eliminar❌
+                                    </a>
 
-
-                        <?php
-
-                        foreach ($materiasDB as $materias) { ?>
-                            <tr>
-                                <td><?= $materias->id; ?></td>
-                                <td><?= $materias->nombre; ?></td>
-
-                                <td>
-                                    <div>
-                                        <a href="eliminarMateria.php?id=<?= $materias->id; ?>" class="btn btn-danger">Eliminar❌</a>
-                                        <a href="editarMateria.php?id=<?= $materias->id; ?>" class="btn btn-info">Editar✍️</a>
-                                    </div>
-                                </td>
-                            </tr>
+                                </div>
+                            </td>
+                        </tr>
                         <?php }
 
-                        ?>
-
+?>
                     </tbody>
                     <tfoot>
                         <tr>
-                            <th>ID</th>
-                            <th>Nombre de materia</th>
-                            <th>Acción</th>
+                            <th class=" text-xs ">ID</th>
+                            <th class=" text-xs ">Nombre</th>
+                            <th class=" text-xs ">Información</th>
+                            <th class=" text-xs ">Acción</th>
                         </tr>
                     </tfoot>
                 </table>
             </div>
         </div>
+
     </div>
-</body>
-<script>
-    $(document).ready(function() {
-        $('#listamaterias').DataTable({
-            "columns": [{
-                    "width": "5%"
-                }, // Primera columna con un ancho de 100px
-                null, // Segunda columna sin ancho definido
-                {
-                    "width": "25%"
-                } // Tercera columna con un ancho de 150px
-            ]
+
+    <footer>
+        <div class=" bg-slate-600">
+            Footer
+        </div>
+    </footer>
+
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.25/css/jquery.dataTables.min.css">
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.min.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            $('#listaMaterias').DataTable({
+                // Add any customization options here
+            });
         });
-    });
-</script>
+    </script>
+</body>
+
+
 
 </html>

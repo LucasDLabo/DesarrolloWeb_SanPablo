@@ -23,6 +23,7 @@
     </style>
 </head>
 
+
 <body>
     <div class="bs-example">
         <div class="container d-flex justify-content-center">
@@ -68,19 +69,20 @@
                         //Segunda Forma 
                         // "<?="  equivale a un <?php echo
                         foreach ($alumnos as $alumno) { ?>
-                            <tr>
-                                <td><?= $alumno->id; ?></td>
-                                <td><?= $alumno->nombre; ?></td>
-                                <td><?= $alumno->apellido; ?></td>
-                                <td><?= date('d/m/Y', strtotime($alumno->fecha_nacimiento));  ?></td>
-                                <td>
-                                    <div>
-                                        <a href="showSubject.php?id=<?= $alumno->id; ?>" class="btn btn-info ">Ver Materias📖</a>
-                                        <a href="eliminar.php?id=<?= $alumno->id; ?>" class="btn btn-danger">Eliminar❌</a>
-                                        <a href="editar.php?id=<?= $alumno->id; ?>" class="btn btn-info">Editar✍️</a>
-                                    </div>
-                                </td>
-                            </tr>
+                        <tr>
+                            <td><?= $alumno->id ?></td>
+                            <td><?= $alumno->nombre ?></td>
+                            <td><?= $alumno->apellido ?></td>
+                            <td><?= date('d/m/Y', strtotime($alumno->fecha_nacimiento)) ?></td>
+                            <td>
+                                <div>
+                                    <a href="showSubject.php?id=<?= $alumno->id ?>" class="btn btn-info ">Ver
+                                        Materias📖</a>
+                                    <a href="eliminar.php?id=<?= $alumno->id ?>" class="btn btn-danger">Eliminar❌</a>
+                                    <a href="editar.php?id=<?= $alumno->id ?>" class="btn btn-info">Editar✍️</a>
+                                </div>
+                            </td>
+                        </tr>
                         <?php }
 
                         ?>
@@ -100,6 +102,9 @@
         </div>
     </div>
 </body>
+<footer>
+
+</footer>
 <script>
     $(document).ready(function() {
         $('#listaUsuarios').DataTable({
@@ -108,7 +113,9 @@
                 null,
                 null,
                 null,
-                {"width": "40%"}
+                {
+                    "width": "40%"
+                }
             ]
         });
     });
