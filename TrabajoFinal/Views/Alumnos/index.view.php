@@ -12,45 +12,50 @@
 
 </head>
 <header>
-    <nav class=" bg-blue-600">
-        barra de navegacion
+    <nav class=" bg-blue-400 flex text-center items-center">
+        <div class="flex hover:bg-blue-300">
+            <a href="../Index/Index.php" class="py-2 px-3 text-lg font-bold text-white">🏡 Ir a Vista General </a>
+
+        </div>
+        <section class=" text-white text-lg cursor-default"> | </section>
     </nav>
 </header>
 
 <body>
 
-    <div class="container my-10 mx-auto w-12/12 ">
+    <div class="container mx-full w-12/12 ">
 
+        <div class="flex gap-x-4 ">
 
-
-        <div class="mb-5">
-            <h1 class="text-3xl font-bold mb-4">Lista de Alumnos 👩‍🎓</h1>
-
-            <a href="create.php" class=" bg-emerald-800 hover:bg-emerald-900 text-white font-bold py-2 px-4 rounded">
-                Crear Alumno 📖
-            </a>
-        </div>
-        <div class="flex gap-4 ">
-
-            <div class="w-1/6 flex flex-col bg-indigo-200 justify-center items-center">
+            <div
+                class="w-1/6 flex flex-col bg-indigo-200 justify-center items-center shadow-[inset_2px_5px_8px_0px_rgba(0,0,0,0.3)]">
 
                 <div class="flex flex-col gap-5 w-full items-center">
-                    <span class=" bg-indigo-500 rounded-md text-white w-4/5 text-center py-1 font-semibold">
+                    <span
+                        class="h-8 bg-indigo-500 rounded-md text-white w-4/5 text-center py-1 font-semibold shadow-[5px_4px_0px_0px_#000047] cursor-default ">
                         Alumnos👩‍🎓
                     </span>
                     <a href="../Profesores/index.php"
-                        class=" border-2 border-transparent text-black w-4/5 text-center py-1 font-semibold hover:border-solid hover:border-2 hover:border-white rounded">
+                        class="h-8 text-black w-4/5 text-center py-1 font-semibold hover:bg-indigo-50 hover:rounded-md">
                         Profesores 👨‍🏫
                     </a>
                     <a href="../Materias/index.php"
-                        class=" border-2 border-transparent text-black w-4/5 text-center py-1 font-semibold hover:border-solid hover:border-2 hover:border-white rounded">
+                        class="h-8 text-black w-4/5 text-center py-1 font-semibold hover:bg-indigo-50 hover:rounded-md ">
                         Materias 📚
                     </a>
                 </div>
 
             </div>
 
-            <div class="flex-grow">
+            <div class="flex-grow my-12">
+                <div class="mb-5">
+                    <h1 class="text-3xl font-bold mb-4">Lista de Alumnos 👩‍🎓</h1>
+
+                    <a href="create.php"
+                        class=" bg-emerald-800 hover:bg-emerald-900 text-white font-bold py-2 px-4 rounded">
+                        Crear Alumno
+                    </a>
+                </div>
                 <table id="listaAlumno" class="table-auto w-full border-solid border-2 border-gray-400 rounded stripe">
 
                     <thead>
@@ -72,18 +77,22 @@
                             <td class="border h-6"><?= date('d/m/Y', strtotime($alumno->fecha_nacimiento)) ?></td>
                             <td class="border text-center h-6">
                                 <div class=" ">
-                                    <a href="showSubject.php?id=<?= $alumno->id ?> " title="Ver Materias de <?= $alumno->nombre . " " . $alumno->apellido ?>"
-                                        class="bg-blue-500 hover:bg-blue-700 text-white font-semibold py-1 px-4 rounded">Ver 📖</a>
+                                    <a href="showSubject.php?id=<?= $alumno->id ?> "
+                                        title="Ver Materias de <?= $alumno->nombre . ' ' . $alumno->apellido ?>"
+                                        class="bg-blue-500 hover:bg-blue-700 text-white font-semibold py-1 px-4 rounded">Ver
+                                        📖</a>
                                 </div>
                             </td>
                             <td class="border py-2 text-center h-6">
                                 <div>
 
-                                    <a href="editar.php?id=<?= $alumno->id ?>" title="Editar Alumno <?= $alumno->nombre . " " . $alumno->apellido ?>"
+                                    <a href="editar.php?id=<?= $alumno->id ?>"
+                                        title="Editar Alumno <?= $alumno->nombre . ' ' . $alumno->apellido ?>"
                                         class="bg-teal-600 hover:bg-teal-900 text-white text-center font-semibold py-1 px-4 mx-2 rounded">
                                         ✍Editar
                                     </a>
-                                    <a href="eliminar.php?id=<?= $alumno->id ?>" title="Eliminar Alumno <?= $alumno->nombre . " " . $alumno->apellido ?>"
+                                    <a href="eliminar.php?id=<?= $alumno->id ?>"
+                                        title="Eliminar Alumno <?= $alumno->nombre . ' ' . $alumno->apellido ?>"
                                         class="bg-rose-700 hover:bg-rose-900 text-white text-center font-semibold py-1 px-4 mx-2 rounded">Eliminar❌
                                     </a>
 
