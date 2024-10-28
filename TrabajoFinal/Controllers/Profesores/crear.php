@@ -5,10 +5,12 @@ require_once "../../Models/materia.php";
 
 $materias = Materia::all();
 
-if (isset($_POST['createProfesor'])) {
-    $nombre = $_POST['nombreProfesor'];
-    $apellido = $_POST['apellidoProfesor'];
+if (isset($_POST['nombre'])) {
+    $nombre = $_POST['nombre'];
+    $apellido = $_POST['apellido'];
     $materiaID = $_POST['materiaID'];
+
+    var_dump($nombre);
 
     $profesor = new Profesor();
     $profesor->nombre = $nombre;

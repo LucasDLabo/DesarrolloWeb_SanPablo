@@ -6,4 +6,4 @@ require_once __DIR__ ."/../../Models/materia.php";
 $id = $_GET['id'];
 $alumno = Alumno::getById($id);
 
-require_once "../../Views/Alumnos/showSubject.view.php";
+require_once "../../Views/Alumnos/verMaterias.view.php";

@@ -77,7 +77,7 @@
                             <td class="border h-6"><?= date('d/m/Y', strtotime($alumno->fecha_nacimiento)) ?></td>
                             <td class="border text-center h-6">
                                 <div class=" ">
-                                    <a href="showSubject.php?id=<?= $alumno->id ?> "
+                                    <a href="verMaterias.php?id=<?= $alumno->id ?> "
                                         title="Ver Materias de <?= $alumno->nombre . ' ' . $alumno->apellido ?>"
                                         class="bg-blue-500 hover:bg-blue-700 text-white font-semibold py-1 px-4 rounded">Ver
                                         📖</a>

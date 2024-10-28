@@ -41,7 +41,7 @@
                 </div>
             </div>
 
-            <div class="flex-grow my-12">
+            <div class="flex-grow my-12 ml-8">
                 <div class="mb-5">
                     <h1 class="text-3xl font-bold mb-4">Lista de Profesores 👨‍🏫</h1>
 
