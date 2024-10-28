@@ -74,10 +74,12 @@
                                 <div>
 
                                     <a href="editar.php?id=<?= $profesor->id ?>"
+                                        title="Editar Profesor <?= $profesor->nombre . ' ' . $profesor->apellido ?>"
                                         class= " bg-teal-600 hover:bg-teal-900 text-white text-center font-semibold py-1 px-4 mx-2 rounded">
                                         ✍Editar
                                     </a>
-                                    <a href="eliminar.php?id=<?= $profesor->id ?>"
+                                    <a href="eliminar.php?id=<?= $profesor->id ?>" onclick="return confirmar('<?= $profesor->nombre . ' ' . $profesor->apellido ?>')"
+                                        title="Eliminar Profesor <?= $profesor->nombre . ' ' . $profesor->apellido ?>"
                                         class=" bg-rose-700 hover:bg-rose-900 text-white text-center font-semibold py-1 px-4 mx-2 rounded">Eliminar❌
                                     </a>
 
@@ -123,6 +125,10 @@
                 // Add any customization options here
             });
         });
+
+        function confirmar(nombre) {
+            return confirm("⚠️ Atención ⚠️ \n ¿Estás seguro de que deseas eliminar al profesor " + nombre + "? \n Está acción no se puede deshacer.");
+        }
     </script>
 
 </body>
