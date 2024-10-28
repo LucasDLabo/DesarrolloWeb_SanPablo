@@ -6,10 +6,10 @@ require_once "../../Models/materia.php";
 $id = $_GET['id'];
 $materias = Materia::all();
 
-if (isset($_POST['submitEdit'])) {
+if (isset($_POST['nombre'])) {
     $nombre = $_POST['nombre'];
     $apellido = $_POST['apellido'];
-    $fecha_nacimineto = $_POST['date'];
+    $fecha_nacimineto = $_POST['fecha'];
     $materias = $_POST['materia'];
 
     $alumno = Alumno::getById($id);

@@ -46,26 +46,26 @@
 
                 <hr class="my-5 border-3 border-solid border-indigo-500">
 
-                <form action="" method="post" id="editAlumno">
+                <form action="" method="post" id="editAlumno" onsubmit="return validar();">
 
                     <div class="mb-5">
                         <label for="nombre" class="block mb-2 font-bold text-gray-600">Nombre</label>
-                        <input type="text" id="nombreE" name="nombre" value="<?= $alumno->nombre ?>"
+                        <input type="text" id="nombreEdit" name="nombre" value="<?= $alumno->nombre ?>"
                             class="border border-gray-300 shadow p-3 w-full rounded">
                         <p id="errorNombreE" class="text-sm text-indigo-700 mt-2"></p>
                     </div>
 
                     <div class="mb-5">
                         <label for="apellido" class="block mb-2 font-bold text-gray-600">Apellido</label>
-                        <input type="text" id="apellidoE" name="apellido" value="<?= $alumno->apellido ?>"
+                        <input type="text" id="apellidoEdit" name="apellido" value="<?= $alumno->apellido ?>"
                             class="border border-gray-300 shadow p-3 w-full rounded ">
                         <p id="errorApellidoE" class="text-sm text-indigo-700 mt-2"></p>
                     </div>
 
                     <div class="mb-5">
-                        <label for="date" class="block mb-2 font-bold text-gray-600">Fecha de
+                        <label for="fecha" class="block mb-2 font-bold text-gray-600">Fecha de
                             nacimiento</label>
-                        <input type="date" id="dateE" name="date" value="<?= $alumno->fecha_nacimiento ?>"
+                        <input type="date" id="fechaEdit" name="fecha" value="<?= $alumno->fecha_nacimiento ?>"
                             class="border border-gray-300 shadow p-3 w-full rounded ">
                         <p id="errorFechaE" class="text-sm text-indigo-700 mt-2"></p>
                     </div>
@@ -98,8 +98,11 @@
                             Cancelar
                         </button>
 
+
                         <button class=" w-28 bg-indigo-500 hover:bg-indigo-700 text-white font-bold p-4 rounded-lg"
-                            type="submit" name="submitEdit">Guardar</button>
+                            type="submit" id="submitEdit" name="submitEdit">Guardar
+                        </button>
+
                     </div>
                 </form>
 
