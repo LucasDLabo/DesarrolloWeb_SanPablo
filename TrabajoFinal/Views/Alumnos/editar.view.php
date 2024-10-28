@@ -132,7 +132,7 @@
             }
         })
     </script>
-    <script defer src="validaciones.js"></script>
+    <script defer src="editValidaciones.js"></script>
 </body>
 
 </html>
