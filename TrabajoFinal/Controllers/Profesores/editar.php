@@ -1,13 +1,15 @@
 <?php
 
 require_once "../../Models/profesor.php";
+require_once "../../Models/materia.php";
 
 $id = $_GET['id'];
+$materias = Materia::all();
 
-if (isset($_POST['submitEdit3'])) {
-    $nombre = $_POST['nombreProfesor'];
-    $apellido = $_POST['apellidoProfesor'];
-    $materiaID = $_POST['materiaProfesor'];
+if (isset($_POST['nombre'])) {
+    $nombre = $_POST['nombre'];
+    $apellido = $_POST['apellido'];
+    $materiaID = $_POST['materiaID'];
 
     $profesor = Profesor::getById($id);
     $profesor->nombre = $nombre;
