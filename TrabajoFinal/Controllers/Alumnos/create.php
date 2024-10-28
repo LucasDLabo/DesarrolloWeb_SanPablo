@@ -5,7 +5,7 @@ require_once "../../Models/materia.php";
 
 $materias = Materia::all();
 
-if (isset($_POST['submit'])) {
+if (isset($_POST['nombre'])) {
     $nombre = $_POST['nombre'];
     $apellido = $_POST['apellido'];
     $fecha_nacimineto = $_POST['date'];

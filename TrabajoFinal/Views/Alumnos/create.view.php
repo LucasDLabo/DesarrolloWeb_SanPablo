@@ -36,17 +36,18 @@
                     ✍</h2>
                 <hr class="my-5 border-3 border-solid border-indigo-500">
 
-                <form action="" method="post" id="create">
+                <form action="" method="post" id="createAlumno" data-form-type="create">
+
                     <div class="mb-5">
                         <label for="nombre" class="block mb-2 font-bold text-gray-600">Nombre</label>
-                        <input type="text" id="nombre" name="nombre" placeholder="Introduzca el nombre"
+                        <input type="text" id="nombreCreate" name="nombre" placeholder="Introduzca el nombre"
                             class="border border-gray-300 shadow p-3 w-full rounded">
                         <p id="errorNombre" class="text-sm text-indigo-700 mt-2"></p>
                     </div>
 
                     <div class="mb-5">
                         <label for="apellido" class="block mb-2 font-bold text-gray-600">Apellido</label>
-                        <input type="text" id="apellido" name="apellido" placeholder="Introduzca el apellido"
+                        <input type="text" id="apellidoCreate" name="apellido" placeholder="Introduzca el apellido"
                             class="border border-gray-300 shadow p-3 w-full rounded">
                         <p id="errorApellido" class="text-sm text-indigo-700 mt-2"></p>
                     </div>
@@ -54,7 +55,7 @@
                     <div class="mb-5">
                         <label for="date" class="block mb-2 font-bold text-gray-600">Fecha de
                             nacimiento</label>
-                        <input type="date" id="date" name="date" placeholder="01-01-2024"
+                        <input type="date" id="fechaCreate" name="date" placeholder="01-01-2024"
                             class="border border-gray-300 shadow p-3 w-full rounded">
                         <p id="errorFecha" class="text-sm text-indigo-700 mt-2"></p>
                     </div>
@@ -102,58 +103,9 @@
                 bgColor: '#eaffe6',
             }
         });
-
-        document.querySelector('form').onsubmit = function(event) {
-            // Limpiar el mensaje de error y el estilo del input antes de la validación
-            document.getElementById('errorNombre').textContent = '';
-            document.getElementById('errorApellido').textContent = '';
-            document.getElementById('errorFecha').textContent = '';
-
-            const nombreInput = document.getElementById('nombre');
-            const apellidoInput = document.getElementById('apellido');
-            const fechaInput = document.getElementById('date');
-
-            nombreInput.classList.remove('border-indigo-500');
-            apellidoInput.classList.remove('border-indigo-500');
-            fechaInput.classList.remove('border-indigo-500');
-
-            // Validación Nombre
-            if (nombreInput.value.length < 2 || nombreInput.value.length > 255) {
-                event.preventDefault(); // Evitar el envío del formulario
-                if (nombreInput.value.length > 255) {
-                    document.getElementById('errorNombre').textContent = 'El nombre tiene más de 255 caracteres.';
-                } else {
-                    document.getElementById('errorNombre').textContent = 'El nombre tiene menos de 2 caracteres.';
-                }
-                nombreInput.classList.add('border-indigo-500'); // Añadir clase de error
-            }
-
-            // Validación Apellido
-            if (apellidoInput.value.length < 2 || apellidoInput.value.length > 255) {
-                event.preventDefault(); // Evitar el envío del formulario
-                if (apellidoInput.value.length > 255) {
-                    document.getElementById('errorApellido').textContent = 'El apellido tiene más de 255 caracteres.';
-                } else {
-                    document.getElementById('errorApellido').textContent = 'El apellido tiene menos de 2 caracteres.';
-                }
-                apellidoInput.classList.add('border-indigo-500'); // Añadir clase de error
-            }
-
-            const today = new Date();
-            const selectedDate = new Date(fechaInput.value);
-            const minDate = new Date('1920-01-01')
-            if (selectedDate > today) {
-                event.preventDefault(); // Evitar el envío del formulario
-                document.getElementById('errorFecha').textContent = 'La fecha no puede ser futura.';
-                fechaInput.classList.add('border-indigo-500'); // Añadir clase de error
-            } else if (selectedDate < minDate) {
-                event.preventDefault(); // Evitar el envío del formulario
-                document.getElementById('errorFecha').textContent = 'Ingrese una fecha válida.';
-                fechaInput.classList.add('border-indigo-500'); // Añadir clase de error
-            }
-
-        };
     </script>
+    <script defer src="createValidaciones.js"></script>
+
 </body>
 
 </html>
