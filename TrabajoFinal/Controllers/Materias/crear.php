@@ -13,4 +13,4 @@ if (isset($_POST['createMateria'])){
 }
 
 
-require_once "../../Views/Materias/create.view.php";
+require_once "../../Views/Materias/crear.view.php";

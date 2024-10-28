@@ -20,4 +20,4 @@ if (isset($_POST['createProfesor'])) {
 
 }
 
-require_once "../../Views/Profesores/create.view.php";
+require_once "../../Views/Profesores/crear.view.php";
