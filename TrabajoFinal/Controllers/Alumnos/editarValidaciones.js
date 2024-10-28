@@ -72,7 +72,7 @@ if(fechaInputDate == 'Invalid Date'){
     mostrarError(fechaInput, 'El campo Fecha de Nacimiento es requerido.');
     enviarFormulario = false;
 }else if (fechaInputDate > fechaHoy) {
-    mostrarError(fechaInput, 'Ingrese una fecha posterior al día de hoy.');
+    mostrarError(fechaInput, 'Ingrese una fecha anterior al día de hoy.');
     enviarFormulario = false;
 } else if (fechaInputDate < fechaMin) {
     mostrarError(fechaInput, 'Ingrese una fecha válida.');

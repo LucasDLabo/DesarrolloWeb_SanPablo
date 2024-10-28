@@ -1,10 +1,8 @@
 //CREATE
-const form = document.getElementById('createAlumno')
+const form = document.getElementById('createMateria')
 
 //Traigo los valores de los inputs
-const nombreInput = document.getElementById('nombreCreate');
-const apellidoInput = document.getElementById('apellidoCreate');
-const fechaInput = document.getElementById('fechaCreate');
+const nombreInput = document.getElementById('nombreCreateMateria');
 
 form.addEventListener('submit', function (event) {
     event.preventDefault();
@@ -47,38 +45,6 @@ if (nombreInput.value === '') {
     enviarFormulario = false;
 } else {
     limpiarError(nombreInput)
-}
-
-  // Validación de Apellido
-if (apellidoInput.value === '') {
-    mostrarError(apellidoInput, 'El campo Apellido es requerido.');
-    enviarFormulario = false;
-} else if (apellidoInput.value.trim().length < 2) {
-    mostrarError(apellidoInput, 'El apellido debe tener al menos 2 caracteres.');
-    enviarFormulario = false;
-} else if (apellidoInput.value.trim().length > 255) {
-    mostrarError(apellidoInput, 'El apellido debe tener menos de 255 caracteres.');
-    enviarFormulario = false;
-} else {
-    limpiarError(apellidoInput);
-}
-
-//Validación de Fecha
-const fechaHoy = new Date();
-const fechaInputDate = new Date(fechaInput.value);
-const fechaMin = new Date('1920-01-01');
-
-if(fechaInputDate == 'Invalid Date'){
-    mostrarError(fechaInput, 'El campo Fecha de Nacimiento es requerido.');
-    enviarFormulario = false;
-}else if (fechaInputDate > fechaHoy) {
-    mostrarError(fechaInput, 'Ingrese una fecha anterior al día de hoy.');
-    enviarFormulario = false;
-} else if (fechaInputDate < fechaMin) {
-    mostrarError(fechaInput, 'Ingrese una fecha válida.');
-    enviarFormulario = false;
-} else {
-    limpiarError(fechaInput);
 }
 
 // Enviar formulario si todas las validaciones son correctas

@@ -2,9 +2,9 @@
 
 require_once "../../Models/materia.php";
 
-if (isset($_POST['createMateria'])){
+if (isset($_POST['nombreMateria'])){
     $nombreMateria = $_POST['nombreMateria'];
-
+    var_dump($nombreMateria);
     $materia = new Materia;
     $materia->nombre = $nombreMateria;
     $materia->create();
