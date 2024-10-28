@@ -1,5 +1,11 @@
+window.cleanErrores = function () {
+    // Selecciona todos los elementos con mensajes de error
+    const inputs = document.querySelectorAll('#createAlumno input'); 
+    inputs.forEach(input => limpiarError(input)); // Aplica la función limpiarError a cada input
+}
 //CREATE
 const form = document.getElementById('createAlumno')
+
 
 //Traigo los valores de los inputs
 const nombreInput = document.getElementById('nombreCreate');
@@ -10,6 +16,8 @@ form.addEventListener('submit', function (event) {
     event.preventDefault();
     validar();
 })
+
+
 
 //Función que recibe el input a mostrar error y el mensaje
 const mostrarError = (input, mensaje) => {
@@ -26,7 +34,9 @@ const limpiarError = input => {
     const elementoPadre = input.parentElement; // Etiqueta div padre del input
     const etiquetaP = elementoPadre.querySelector('p'); // Selecciona el <p>
 
-    etiquetaP.innerText = ''; // Limpia el mensaje de error en el <p>
+    if (etiquetaP){
+        etiquetaP.innerText = ''; // Limpia el mensaje de error en el <p>
+    }
     input.classList.remove('border-indigo-500'); // Elimina el estilo del input
     input.classList.add('border-gray-300'); // Aplica el estilo del input
 }

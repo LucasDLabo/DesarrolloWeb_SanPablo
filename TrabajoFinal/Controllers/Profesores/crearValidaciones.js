@@ -1,3 +1,11 @@
+window.cleanErrores = function () {
+    // Selecciona todos los elementos con mensajes de error
+    const inputs = document.querySelectorAll('#createProfesor input'); 
+    const select = document.getElementById('materiaCreateProfesor');
+    
+    inputs.forEach(input => limpiarError(input)); 
+    limpiarError(select);
+}
 //CREATE
 const form = document.getElementById('createProfesor')
 

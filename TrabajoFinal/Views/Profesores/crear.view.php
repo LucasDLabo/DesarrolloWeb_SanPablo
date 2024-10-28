@@ -73,6 +73,8 @@
 
                         <div class="flex justify-end">
                             <button
+                                type="button"
+                                onclick="clean()"
                                 class="mx-8 w-1/5 rounded-lg bg-gray-200 p-4 font-bold text-black hover:bg-gray-300">Cancelar</button>
 
                             <button class="w-1/4 rounded-lg bg-indigo-500 p-4 font-bold text-white hover:bg-indigo-700"
@@ -92,7 +94,13 @@
         </div>
     </footer>
 
-
+    <script>
+        const formulario = document.getElementById('createProfesor');
+        function clean() {            
+            formulario.reset();
+            cleanErrores();
+        }
+    </script>
 </body>
 
 </html>

@@ -10,6 +10,7 @@
 
     <script src="https://cdn.tailwindcss.com"></script>
     <script defer src="crearValidaciones.js"></script>
+
 </head>
 
 <body class="min-h-screen flex flex-col">
@@ -62,7 +63,6 @@
                         </div>
 
                         <div class="mb-3">
-
                             <label for="materia" class="block mb-2 font-bold text-gray-600">Asignar Materias</label>
                             <select name="materia[]" id="materia" multiple>
                                 <?php foreach ($materias as $materia) {?>
@@ -72,7 +72,7 @@
                         </div>
 
                         <div class="flex justify-end">
-                            <button
+                            <button type="button" onclick="clean()"
                                 class="mx-8 w-1/5 bg-gray-200 hover:bg-gray-300 text-black font-bold p-4 rounded-lg">Cancelar</button>
 
                             <button class=" w-1/4 bg-indigo-500 hover:bg-indigo-700 text-white font-bold p-4 rounded-lg"
@@ -104,6 +104,12 @@
                 bgColor: '#eaffe6',
             }
         });
+
+        const formulario = document.getElementById('createAlumno');
+        function clean() {
+            formulario.reset();
+            cleanErrores();
+        }
     </script>
 
 

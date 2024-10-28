@@ -1,3 +1,8 @@
+window.cleanErrores = function () {
+    // Selecciona todos los elementos con mensajes de error
+    const inputs = document.querySelectorAll('#createMateria input'); 
+    inputs.forEach(input => limpiarError(input)); // Aplica la función limpiarError a cada input
+}
 //CREATE
 const form = document.getElementById('createMateria')
 
@@ -8,6 +13,7 @@ form.addEventListener('submit', function (event) {
     event.preventDefault();
     validar();
 })
+
 
 //Función que recibe el input a mostrar error y el mensaje
 const mostrarError = (input, mensaje) => {
