@@ -1,3 +1,8 @@
+window.cleanErrores = function () {
+    // Selecciona todos los elementos con mensajes de error
+    const inputs = document.querySelectorAll('#editAlumno input'); 
+    inputs.forEach(input => limpiarError(input)); // Aplica la función limpiarError a cada input
+}
 //EDIT
 const form = document.getElementById('editAlumno')
 

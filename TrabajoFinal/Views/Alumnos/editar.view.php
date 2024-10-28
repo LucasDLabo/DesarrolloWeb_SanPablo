@@ -95,7 +95,10 @@
                         </div>
 
                         <div class="flex justify-end">
-                            <button class="mx-8 bg-gray-200 hover:bg-gray-300 text-black font-bold p-4 rounded-lg">
+                            <button 
+                            type="button"
+                            onclick="clean()"
+                            class="mx-8 bg-gray-200 hover:bg-gray-300 text-black font-bold p-4 rounded-lg">
                                 Cancelar
                             </button>
 
@@ -132,6 +135,12 @@
                 bgColor: '#eaffe6',
             }
         })
+        
+        const formulario = document.getElementById('editAlumno');
+        function clean() {
+            formulario.reset();
+            cleanErrores();
+        }
     </script>
 
 </body>
