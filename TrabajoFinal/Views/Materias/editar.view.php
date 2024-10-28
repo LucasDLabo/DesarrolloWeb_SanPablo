@@ -5,6 +5,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Editar Materia</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script defer src="editarValidaciones.js"></script>
+
 </head>
 
 <body class="min-h-screen flex flex-col">
@@ -19,7 +22,43 @@
     </header>
 
     <main class="flex-grow">
+        <div class="grid grid-cols-6 items-start justify-items-center py-8">
 
+            <a href="index.php"
+                class="w-3/5  bg-blue-500 hover:bg-blue-900 text-white font-bold py-2 px-4 rounded text-center">
+                Volver atrás
+            </a>
+
+            <div class="w-full col-start-2 col-end-6">
+                <div class= "mx-20 rounded-lg border-2 border-solid border-indigo-500 bg-white px-20 py-8 shadow">
+                    <h2 class="text-center text-2xl font-bold uppercase text-gray-600">
+                        Ingrese los datos de la Materia 📚
+                    </h2>
+                    <hr class="border-3 my-5 border-solid border-indigo-500">
+
+                    <form action="" method="post" id="editMateria">
+
+                        <div class="mb-3">
+                            <label for="nombreMateria" class="mb-2 block font-bold text-gray-600">Nombre</label>
+                            <input type="text" id="nombreEditMateria" name="nombreMateria"
+                                value="<?=$materia->nombre?>"
+                                class="border border-gray-300 shadow p-3 w-full rounded">
+                            <p class="mt-2 h-5 text-sm text-indigo-700"></p>
+                        </div>
+
+                        <div class="flex justify-end">
+                            <button
+                                class="mx-8 w-1/5 rounded-lg bg-gray-200 p-4 font-bold text-black hover:bg-gray-300">Cancelar</button>
+
+                            <button class="w-1/4 rounded-lg bg-indigo-500 p-4 font-bold text-white hover:bg-indigo-700"
+                                type="submit" id="submitEditMateria" name="submitEditMateria">Crear</button>
+                        </div>
+                    </form>
+
+                </div>
+            </div>
+
+        </div>
     </main>
 
     <footer>
@@ -27,15 +66,7 @@
             Footer
         </div>
     </footer>
-
-    <h1>Ingrese los nuevos datos de la materia✍ - ID(<?= $materia->id ?>)</h1>
-
-    <form action="" method="post">
-        <label for="nombre">Nombre</label>
-        <input type="text" name="nombre" id="nombre" value="<?= $materia->nombre ?>">
-        <br>
-        <button type="submit" name="submitEdit2">Actualizar</button>
-    </form>
+    
 </body>
 
 </html>

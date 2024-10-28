@@ -4,8 +4,8 @@ require_once "../../Models/materia.php";
 
 $id = $_GET['id'];
 
-if (isset($_POST['submitEdit2'])) {
-    $nombre = $_POST['nombre'];
+if (isset($_POST['nombreMateria'])) {
+    $nombre = $_POST['nombreMateria'];
 
     $materia = Materia::getById($id);
     $materia->nombre = $nombre;
