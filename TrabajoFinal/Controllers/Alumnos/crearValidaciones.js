@@ -83,6 +83,6 @@ if(fechaInputDate == 'Invalid Date'){
 
 // Enviar formulario si todas las validaciones son correctas
 if (enviarFormulario == true) {
-    form.submit();
+    form.submit()
 }
 }

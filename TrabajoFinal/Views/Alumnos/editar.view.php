@@ -10,6 +10,7 @@
         href="https://cdn.jsdelivr.net/gh/habibmhamadi/multi-select-tag@3.1.0/dist/css/multi-select-tag.css">
 
     <script src="https://cdn.tailwindcss.com"></script>
+    <script defer src="editarValidaciones.js"></script>
 
 
 </head>
@@ -46,7 +47,7 @@
 
                 <hr class="my-5 border-3 border-solid border-indigo-500">
 
-                <form action="" method="post" id="editAlumno" data-form-type="edit">
+                <form action="" method="post" id="editAlumno" >
 
                     <div class="mb-5">
                         <label for="nombre" class="block mb-2 font-bold text-gray-600">Nombre</label>
@@ -132,7 +133,7 @@
             }
         })
     </script>
-    <script defer src="editValidaciones.js"></script>
+    
 </body>
 
 </html>

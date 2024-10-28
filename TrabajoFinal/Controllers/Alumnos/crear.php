@@ -26,4 +26,4 @@ if (isset($_POST['nombre'])) {
 
 }
 
-require_once "../../Views/Alumnos/create.view.php";
+require_once "../../Views/Alumnos/crear.view.php";

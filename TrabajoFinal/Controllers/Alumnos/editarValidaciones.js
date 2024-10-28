@@ -1,4 +1,4 @@
-//CREATE
+//EDIT
 const form = document.getElementById('editAlumno')
 
 //Traigo los valores de los inputs
@@ -82,7 +82,7 @@ if(fechaInputDate == 'Invalid Date'){
 }
 
 // Enviar formulario si todas las validaciones son correctas
-if (enviarFormulario == true) {
+if (enviarFormulario === true) {
     form.submit();
 }
 }

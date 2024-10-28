@@ -9,7 +9,7 @@
         href="https://cdn.jsdelivr.net/gh/habibmhamadi/multi-select-tag@3.1.0/dist/css/multi-select-tag.css">
 
     <script src="https://cdn.tailwindcss.com"></script>
-
+    <script defer src="crearValidaciones.js"></script>
 </head>
 
 <body>
@@ -36,7 +36,7 @@
                     ✍</h2>
                 <hr class="my-5 border-3 border-solid border-indigo-500">
 
-                <form action="" method="post" id="createAlumno" data-form-type="create">
+                <form action="" method="post" id="createAlumno">
 
                     <div class="mb-5">
                         <label for="nombre" class="block mb-2 font-bold text-gray-600">Nombre</label>
@@ -75,7 +75,7 @@
                             class="mx-8 w-1/5 bg-gray-200 hover:bg-gray-300 text-black font-bold p-4 rounded-lg">Cancelar</button>
 
                         <button class=" w-1/4 bg-indigo-500 hover:bg-indigo-700 text-white font-bold p-4 rounded-lg"
-                            type="submit" name="submit">Crear</button>
+                            type="submit" id="submitCreate" name="submitCreate">Crear</button>
                     </div>
                 </form>
             </div>
@@ -104,7 +104,7 @@
             }
         });
     </script>
-    <script defer src="createValidaciones.js"></script>
+    
 
 </body>
 

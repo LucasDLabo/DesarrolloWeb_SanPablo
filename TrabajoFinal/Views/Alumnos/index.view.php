@@ -51,7 +51,7 @@
                 <div class="mb-5">
                     <h1 class="text-3xl font-bold mb-4">Lista de Alumnos 👩‍🎓</h1>
 
-                    <a href="create.php"
+                    <a href="crear.php"
                         class=" bg-emerald-800 hover:bg-emerald-900 text-white font-bold py-2 px-4 rounded">
                         Crear Alumno
                     </a>
