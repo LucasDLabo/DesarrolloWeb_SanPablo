@@ -74,10 +74,12 @@
                                     <div>
 
                                         <a href="editar.php?id=<?= $materia->id ?>"
+                                            title="Editar Materia <?=$materia->nombre?>"
                                             class= " bg-teal-600 hover:bg-teal-900 text-white text-center font-semibold py-1 px-4 mx-2 rounded">
                                             ✍Editar
                                         </a>
                                         <a href="eliminar.php?id=<?= $materia->id ?>"
+                                            title="Eliminar Materia <?=$materia->nombre?>"
                                             onclick="return confirmar('<?= $materia->nombre?>')"
                                             class=" bg-rose-700 hover:bg-rose-900 text-white text-center font-semibold py-1 px-4 mx-2 rounded">Eliminar❌
                                         </a>
