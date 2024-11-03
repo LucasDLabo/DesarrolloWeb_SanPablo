@@ -125,7 +125,7 @@
                     </button>
                 </a>
             </div>
-            <table id="listaMaterias" class="table-auto w-full border-solid border-2 border-gray-400 rounded stripe">
+            <table id="listaMaterias" class="table-auto w-auto border-solid border-2 border-gray-400 rounded stripe">
 
                 <thead>
                     <tr>

@@ -22,7 +22,9 @@
             <div class="max-w-screen flex flex-wrap items-center justify-between  p-4">
                 <a href="#" class="flex items-center space-x-3 rtl:space-x-reverse ">
                     <!-- <img src="https://flowbite.com/docs/images/logo.svg" class="h-8" alt="Flowbite Logo" /> -->
-                    <span class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white hover:text-blue-500">Ir a la Vista
+                    <span
+                        class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white hover:text-blue-500">Ir
+                        a la Vista
                         General </span>
                 </a>
                 <button data-collapse-toggle="navbar-dropdown" type="button"
@@ -67,7 +69,7 @@
                                             Profesor</a>
                                     </li>
                                     <li>
-                                        <a href="#"
+                                        <a href=""
                                             class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Nueva
                                             Materia</a>
                                     </li>
@@ -97,94 +99,110 @@
         </nav>
     </header>
 
-    <main class="flex flex-grow gap-x-4">
-
-        <div class="flex flex-col bg-indigo-200 w-1/6 shadow-[inset_-5px_7px_8px_0px_rgba(0,0,0,0.3)]">
-            <div class="flex flex-grow flex-col gap-5 justify-center items-center">
-                <span
-                    class="h-8 w-4/5 cursor-default rounded-md bg-indigo-500 py-1 text-center font-semibold text-white shadow-[5px_4px_0px_0px_#000047] lg:text-l ">
-                    Alumnos👩‍🎓
-                </span>
-                <a href="../Profesores/index.php"
-                    class="h-8 text-black w-4/5 text-center lg:text-l py-1 font-semibold hover:bg-indigo-50 hover:rounded-md">
-                    Profesores👨‍🏫
-                </a>
-                <a href="../Materias/index.php"
-                    class="h-8 text-black w-4/5 text-center lg:text-l xl: py-1 font-semibold hover:bg-indigo-50 hover:rounded-md ">
-                    Materias📚
-                </a>
-            </div>
-
-        </div>
+    <main class="flex flex-grow gap-x-4 px-4">
 
         <div class="flex flex-col flex-grow m-5 justify-center">
-            <div class="mb-5">
-                <h1 class="mb-4 font-bold lg:text-3xl ">Lista de Alumnos 👩‍🎓</h1>
 
-                <a href="crear.php">
-                    <button
-                        class="rounded bg-emerald-800  px-4 py-2 font-bold text-white shadow-[0px_6px_0px_0px_#1a380c] hover:bg-emerald-900 active:translate-y-[2px] active:shadow-[0px_3px_0px_0px_#1a380c]">
-                        Crear Alumno
-                    </button>
-                </a>
+            <div class="flex flex-row flex-grow justify-center ">
+
+                <div class="flex flex-col w-1/6 content-center items-center gap-4 pt-16 text-center font-medium text-gray-500 shadow-[1px_0_0px_rgba(0,0,0,0.2)] mr-3">
+
+                    <a href="#" class=" px-4 py-3 text-white bg-blue-700 rounded-lg active w-3/5 dark:bg-blue-600"
+                        aria-current="page">
+                        Alumnos
+                    </a>
+
+
+                    <a href="#"
+                        class="px-4 py-3 rounded-lg hover:text-gray-900 bg-gray-100 hover:bg-gray-100 w-3/5 ">
+                        Profesores
+                    </a>
+
+
+                    <a href="../Materias/index.php"
+                        class="px-4 py-3 rounded-lg hover:text-gray-900 bg-gray-100 hover:bg-gray-100 w-3/5">
+                        Materias
+                    </a>
+
+                </div>
+
+                <div name="datatable" class="w-full px-5">
+
+                    <div class="flex flex-row gap-10">
+                        <h1 class="mb-4 font-bold lg:text-3xl ">Lista de Alumnos 👩‍🎓</h1>
+
+                        <a href="crear.php">
+                            <button
+                                class="rounded bg-emerald-800  px-4 py-2 font-bold text-white shadow-[0px_6px_0px_0px_#1a380c] hover:bg-emerald-900 active:translate-y-[2px] active:shadow-[0px_3px_0px_0px_#1a380c]">
+                                Crear Alumno
+                            </button>
+                        </a>
+
+                    </div>
+
+                    <hr class="mb-4 mt-2">
+                    <table id="listaAlumno"
+                        class=" table-auto w-full border-solid border-2 border-gray-400 rounded stripe">
+
+                        <thead>
+                            <tr>
+                                <th class=" text-xs ">ID</th>
+                                <th class=" text-xs ">Nombre</th>
+                                <th class=" text-xs ">Apellido</th>
+                                <th class=" text-xs ">Fecha nac.</th>
+                                <th class=" text-xs ">Materias</th>
+                                <th class=" text-xs ">Acción</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <?php foreach ($alumnos as $alumno) { ?>
+                            <tr>
+                                <td class="border text-center h-6"><?= $alumno->id ?></td>
+                                <td class="border h-6"><?= $alumno->nombre ?></td>
+                                <td class="border h-6"><?= $alumno->apellido ?></td>
+                                <td class="border h-6"><?= date('d/m/Y', strtotime($alumno->fecha_nacimiento)) ?></td>
+                                <td class="border text-center h-6">
+                                    <div class=" ">
+                                        <a href="verMaterias.php?id=<?= $alumno->id ?> "
+                                            title="Ver Materias de <?= $alumno->nombre . ' ' . $alumno->apellido ?>"
+                                            class="bg-blue-500 hover:bg-blue-700 text-white font-semibold py-1 px-4 rounded">Ver
+                                            📖</a>
+                                    </div>
+                                </td>
+                                <td class="border py-2 text-center h-6">
+                                    <div>
+
+                                        <a href="editar.php?id=<?= $alumno->id ?>"
+                                            title="Editar Alumno <?= $alumno->nombre . ' ' . $alumno->apellido ?>"
+                                            class="bg-teal-600 hover:bg-teal-900 text-white text-center font-semibold py-1 px-4 mx-2 rounded">
+                                            ✍Editar
+                                        </a>
+                                        <a href="eliminar.php?id=<?= $alumno->id ?>"
+                                            onclick="return confirmar('<?= $alumno->nombre . ' ' . $alumno->apellido ?>')"
+                                            title="Eliminar Alumno <?= $alumno->nombre . ' ' . $alumno->apellido ?>"
+                                            class="bg-rose-700 hover:bg-rose-900 text-white text-center font-semibold py-1 px-4 mx-2 rounded">Eliminar❌
+                                        </a>
+
+                                    </div>
+                                </td>
+                            </tr>
+                            <?php } ?>
+                        </tbody>
+                        <tfoot>
+                            <tr>
+                                <th class=" text-xs ">ID</th>
+                                <th class=" text-xs ">Nombre</th>
+                                <th class=" text-xs ">Apellido</th>
+                                <th class=" text-xs ">Fecha nac.</th>
+                                <th class=" text-xs ">Materias</th>
+                                <th class=" text-xs ">Acción</th>
+                            </tr>
+                        </tfoot>
+                    </table>
+                </div>
+
             </div>
-            <table id="listaAlumno" class="table-auto w-full border-solid border-2 border-gray-400 rounded stripe">
 
-                <thead>
-                    <tr>
-                        <th class=" w-1/12 text-xs ">ID</th>
-                        <th class=" w-2/12 text-xs ">Nombre</th>
-                        <th class=" w-2/12 text-xs ">Apellido</th>
-                        <th class=" w-1/12 text-xs ">Fecha nac.</th>
-                        <th class=" w-2/12 text-xs ">Materias</th>
-                        <th class=" w-4/12 text-xs ">Acción</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <?php foreach ($alumnos as $alumno) { ?>
-                    <tr>
-                        <td class="border text-center h-6"><?= $alumno->id ?></td>
-                        <td class="border h-6"><?= $alumno->nombre ?></td>
-                        <td class="border h-6"><?= $alumno->apellido ?></td>
-                        <td class="border h-6"><?= date('d/m/Y', strtotime($alumno->fecha_nacimiento)) ?></td>
-                        <td class="border text-center h-6">
-                            <div class=" ">
-                                <a href="verMaterias.php?id=<?= $alumno->id ?> "
-                                    title="Ver Materias de <?= $alumno->nombre . ' ' . $alumno->apellido ?>"
-                                    class="bg-blue-500 hover:bg-blue-700 text-white font-semibold py-1 px-4 rounded">Ver
-                                    📖</a>
-                            </div>
-                        </td>
-                        <td class="border py-2 text-center h-6">
-                            <div>
-
-                                <a href="editar.php?id=<?= $alumno->id ?>"
-                                    title="Editar Alumno <?= $alumno->nombre . ' ' . $alumno->apellido ?>"
-                                    class="bg-teal-600 hover:bg-teal-900 text-white text-center font-semibold py-1 px-4 mx-2 rounded">
-                                    ✍Editar
-                                </a>
-                                <a href="eliminar.php?id=<?= $alumno->id ?>"
-                                    onclick="return confirmar('<?= $alumno->nombre . ' ' . $alumno->apellido ?>')"
-                                    title="Eliminar Alumno <?= $alumno->nombre . ' ' . $alumno->apellido ?>"
-                                    class="bg-rose-700 hover:bg-rose-900 text-white text-center font-semibold py-1 px-4 mx-2 rounded">Eliminar❌
-                                </a>
-
-                            </div>
-                        </td>
-                    </tr>
-                    <?php } ?>
-                </tbody>
-                <tfoot>
-                    <tr>
-                        <th class=" text-xs ">ID</th>
-                        <th class=" text-xs ">Nombre</th>
-                        <th class=" text-xs ">Apellido</th>
-                        <th class=" text-xs ">Fecha nac.</th>
-                        <th class=" text-xs ">Materias</th>
-                        <th class=" text-xs ">Acción</th>
-                    </tr>
-                </tfoot>
-            </table>
         </div>
 
     </main>
