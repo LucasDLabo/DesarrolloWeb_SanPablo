@@ -99,7 +99,7 @@
                             type="button"
                             onclick="clean()"
                             class="mx-8 bg-gray-200 hover:bg-gray-300 text-black font-bold p-4 rounded-lg">
-                                Cancelar
+                                Reiniciar
                             </button>
 
 

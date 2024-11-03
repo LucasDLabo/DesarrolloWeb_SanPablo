@@ -33,8 +33,8 @@
                 Volver atrás
             </a>
 
-            <div class="w-full col-start-2 col-end-6">
-                <div class= "mx-20 rounded-lg border-2 border-solid border-indigo-500 bg-white px-20 py-8 shadow">
+            <div class=" col-start-2 col-end-6">
+                <div class= " rounded-lg border-2 border-solid border-indigo-500 bg-white p-10 shadow">
                     <h2 class="text-center text-2xl font-bold uppercase text-gray-600">
                         Ingrese los datos del Profesor 👨‍🏫
                     </h2>

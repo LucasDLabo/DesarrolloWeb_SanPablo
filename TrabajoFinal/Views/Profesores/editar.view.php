@@ -80,7 +80,7 @@
                             type="button"
                             onclick="clean()"
                             class="mx-8 rounded-lg bg-gray-200 p-4 font-bold text-black hover:bg-gray-300">
-                                Cancelar
+                                Reiniciar
                             </button>
 
                             <button class="w-28 rounded-lg bg-indigo-500 p-4 font-bold text-white hover:bg-indigo-700"
