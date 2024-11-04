@@ -6,12 +6,12 @@ require_once 'materia.php';
 
 class Alumno extends Conexion {
 
-    public $id, $nombre, $apellido, $fecha_nacimiento;
+    public $id, $nombre, $segundo_nombre, $apellido, $fecha_nacimiento;
 
     public function create() {
         $this->conectar();
-        $pre = mysqli_prepare($this->con, "INSERT INTO alumnos (nombre, apellido, fecha_nacimiento) VALUES (?, ?, ?)");
-        $pre->bind_param("sss", $this->nombre, $this->apellido, $this->fecha_nacimiento);
+        $pre = mysqli_prepare($this->con, "INSERT INTO alumnos (nombre, segundo_nombre, apellido, fecha_nacimiento) VALUES (?, ?, ?, ?)");
+        $pre->bind_param("ssss", $this->nombre, $this->segundo_nombre, $this->apellido, $this->fecha_nacimiento);
         $pre->execute();
 
         return $this->con->insert_id;

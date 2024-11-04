@@ -7,12 +7,14 @@ $materias = Materia::all();
 
 if (isset($_POST['nombre'])) {
     $nombre = $_POST['nombre'];
+    $segundo_nombre = $_POST['segundo_nombre'];
     $apellido = $_POST['apellido'];
-    $fecha_nacimineto = $_POST['date'];
+    $fecha_nacimineto = $_POST['fecha'];
     $materias = $_POST['materia'];
 
     $alumno = new Alumno();
     $alumno->nombre = $nombre;
+    $alumno->segundo_nombre = $segundo_nombre;
     $alumno->apellido = $apellido;
     $alumno->fecha_nacimiento = $fecha_nacimineto;
     $alumno_id = $alumno->create();
