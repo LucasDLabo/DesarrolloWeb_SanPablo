@@ -9,7 +9,6 @@
     <link href="https://cdn.jsdelivr.net/gh/habibmhamadi/multi-select-tag@3.1.0/dist/css/multi-select-tag.css"
         rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/flowbite@2.5.2/dist/flowbite.min.css" rel="stylesheet" />
-    <link href="https://cdn.jsdelivr.net/npm/@preline/plugin@1.10.0/dist/preline.min.css" rel="stylesheet">
 
     <script defer src="crearValidaciones.js"></script>
 
@@ -154,7 +153,7 @@
                                 class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto peer-focus:text-blue-900 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">
                                 * Apellido
                             </label>
-                            <p id="errorApellido" class="text-xs h-5 text-blue-700 mt-2"></p>
+                            <p id="errorApellidoE" class="text-xs h-5 text-blue-700 mt-2"></p>
                         </div>
 
 
@@ -202,56 +201,14 @@
                                 class=" w-24 text-gray-100 bg-blue-900 hover:text-white hover:bg-blue-800 font-bold py-2 rounded-lg"
                                 type="submit" id="submitCreate" name="submitCreate">Crear</button>
                         </div>
-
-                        <!-- <div class="mb-3">
-                            <label for="nombre" class="block mb-2 font-bold text-gray-600">Nombre</label>
-                            <input type="text" id="nombreCreate" name="nombre" placeholder="Introduzca el nombre"
-                                class="border border-gray-300 shadow p-3 w-full rounded">
-                            <p id="errorNombre" class="text-sm h-5 text-indigo-700 mt-2"></p>
-                        </div>
-
-                        <div class="mb-3">
-                            <label for="apellido" class="block mb-2 font-bold text-gray-600">Apellido</label>
-                            <input type="text" id="apellidoCreate" name="apellido"
-                                placeholder="Introduzca el apellido"
-                                class="border border-gray-300 shadow p-3 w-full rounded">
-                            <p id="errorApellido" class="text-sm h-5 text-indigo-700 mt-2"></p>
-                        </div>
-
-                        <div class="mb-3">
-                            <label for="date" class="block mb-2 font-bold text-gray-600">Fecha de
-                                nacimiento</label>
-                            <input type="date" id="fechaCreate" name="date" placeholder="01-01-2024"
-                                class="border border-gray-300 shadow p-3 w-full rounded">
-                            <p id="errorFecha" class="text-sm h-5 text-indigo-700 mt-2"></p>
-                        </div>
-
-                        <div class="mb-3">
-                            <label for="materia" class="block mb-2 font-bold text-gray-600">Asignar Materias</label>
-                            <select name="materia[]" id="materias" multiple>
-                                <?php foreach ($materias as $materia) {?>
-                                <option value="<?= $materia->id ?>"><?= $materia->nombre ?></option>
-                                <?php } ?>
-                            </select>
-                        </div> -->
-
-
-
-
                     </form>
-
                 </div>
             </div>
+
         </div>
 
         </div>
     </main>
-
-    <form class="max-w mx-auto">
-
-
-    </form>
-
 
     <footer>
         <div class=" bg-slate-600">
@@ -260,10 +217,6 @@
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
-
-
-    <script src="https://cdn.jsdelivr.net/npm/@preline/plugin@1.10.0/dist/preline.min.js"></script>
-
     <script src="https://cdn.jsdelivr.net/gh/habibmhamadi/multi-select-tag@3.1.0/dist/js/multi-select-tag.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/flowbite@2.5.2/dist/flowbite.min.js"></script>
     <script>

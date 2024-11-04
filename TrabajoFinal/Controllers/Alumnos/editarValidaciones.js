@@ -4,12 +4,12 @@ window.cleanErrores = function () {
     inputs.forEach(input => limpiarError(input)); // Aplica la función limpiarError a cada input
 }
 //EDIT
-const form = document.getElementById('editAlumno')
+const form = document.getElementById('editAlumno');
 
 //Traigo los valores de los inputs
-const nombreInput = document.getElementById('nombreEdit');
-const apellidoInput = document.getElementById('apellidoEdit');
-const fechaInput = document.getElementById('fechaEdit');
+let nombreInput = document.getElementById('nombre');
+let apellidoInput = document.getElementById('apellido');
+let fechaInput = document.getElementById('fecha');
 
 form.addEventListener('submit', function (event) {
     event.preventDefault();
@@ -22,18 +22,20 @@ const mostrarError = (input, mensaje) => {
     const etiquetaP = elementoPadre.querySelector('p'); // Selecciona el <p>
 
     etiquetaP.innerText = mensaje; // Muestra el mensaje de error en el <p>
-    etiquetaP.classList.add('text-indigo-700'); // Aplica el estilo de la etiqueta <p>
+    etiquetaP.classList.add('text-blue-900'); // Aplica el estilo de la etiqueta <p>
     input.classList.remove('border-gray-300'); // Quita el estilo del input
-    input.classList.add('border-indigo-500'); // Aplica el estilo del input
+    input.classList.add('border-blue-900'); // Aplica el estilo del input
 }
 
 const limpiarError = input => {
     const elementoPadre = input.parentElement; // Etiqueta div padre del input
     const etiquetaP = elementoPadre.querySelector('p'); // Selecciona el <p>
-
-    etiquetaP.innerText = ''; // Limpia el mensaje de error en el <p>
-    input.classList.remove('border-indigo-500'); // Elimina el estilo del input
-    input.classList.add('border-gray-300'); // Aplica el estilo del input
+    if (etiquetaP) {
+        etiquetaP.innerText = ''; // Limpia el mensaje de error en el <p>
+        input.classList.remove('border-blue-900'); // Elimina el estilo del input
+        input.classList.add('border-gray-300'); // Aplica el estilo del input
+    }
+    
 }
 
 //Función para validar
@@ -69,12 +71,19 @@ if (apellidoInput.value === '') {
 }
 
 //Validación de Fecha
-const fechaHoy = new Date();
-const fechaInputDate = new Date(fechaInput.value);
-const fechaMin = new Date('1920-01-01');
+let fechaHoy = new Date();
+let fechaInputDate = new Date(fechaInput.value);
+let fechaMin = new Date('1920-01-01');
+
+const fechaHoyFormateada = fechaHoy.toISOString().split('T')[0];
+const fechaInputFormateada = fechaInputDate.toISOString().split('T')[0];
+
 
 if(fechaInputDate == 'Invalid Date'){
     mostrarError(fechaInput, 'El campo Fecha de Nacimiento es requerido.');
+    enviarFormulario = false;
+}else if (fechaInputFormateada == fechaHoyFormateada){
+    mostrarError(fechaInput, 'Ingrese una fecha diferente al día de hoy.');
     enviarFormulario = false;
 }else if (fechaInputDate > fechaHoy) {
     mostrarError(fechaInput, 'Ingrese una fecha anterior al día de hoy.');
