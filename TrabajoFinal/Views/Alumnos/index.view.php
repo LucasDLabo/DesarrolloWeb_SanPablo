@@ -41,7 +41,7 @@
                         <li>
                             <a href="#"
                                 class="block py-2 px-3 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 md:dark:text-blue-500 dark:bg-blue-600 md:dark:bg-transparent"
-                                aria-current="page">Lista de usuarios</a>
+                                aria-current="page">Lista de datos</a>
                         </li>
                         <li>
                             <button id="dropdownNavbarLink" data-dropdown-toggle="dropdownNavbar"
@@ -57,19 +57,19 @@
                                 <ul class="py-2 text-sm text-gray-700 dark:text-gray-400"
                                     aria-labelledby="dropdownLargeButton">
                                     <li>
-                                        <a href="#"
+                                        <a href="../Alumnos/crear.php"
                                             class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">
                                             Nuevo Alumno
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="#"
+                                        <a href="../Profesores/crear.php"
                                             class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">
                                             Nuevo Profesor
                                         </a>
                                     </li>
                                     <li>
-                                        <a href=""
+                                        <a href="../Materias/crear.php"
                                             class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">
                                             Nueva Materia
                                         </a>
@@ -145,7 +145,7 @@
                         <thead>
                             <tr>
                                 <th class="w-1/12 text-xs">ID</th>
-                                <th class=" text-xs">Nombre</th>
+                                <th class=" text-xs">Nombre Completo</th>
                                 <th class=" text-xs">Apellido</th>
                                 <th class=" text-xs">Fecha nac.</th>
                                 <th class=" text-xs">Materias</th>
@@ -159,7 +159,7 @@
 
                             <tr>
                                 <td class="border text-center"><?= $alumno->id ?></td>
-                                <td class="border"><?= $alumno->nombre ?></td>
+                                <td class="border"><?= $alumno->nombre . " " . $alumno->segundo_nombre?></td>
                                 <td class="border"><?= $alumno->apellido ?></td>
                                 <td class="border text-center">
                                     <?= date('d/m/Y', strtotime($alumno->fecha_nacimiento)) ?></td>
@@ -194,7 +194,7 @@
                         <tfoot>
                             <tr>
                                 <th class="text-xs">ID</th>
-                                <th class="text-xs">Nombre</th>
+                                <th class="text-xs">Nombre Completo</th>
                                 <th class="text-xs">Apellido</th>
                                 <th class="text-xs">Fecha nac.</th>
                                 <th class="text-xs">Materias</th>
