@@ -1,7 +1,7 @@
 window.cleanErrores = function () {
     // Selecciona todos los elementos con mensajes de error
     const inputs = document.querySelectorAll('#createProfesor input'); 
-    const select = document.getElementById('materiaCreateProfesor');
+    const select = document.getElementById('materia');
     
     inputs.forEach(input => limpiarError(input)); 
     limpiarError(select);
@@ -10,9 +10,9 @@ window.cleanErrores = function () {
 const form = document.getElementById('createProfesor')
 
 //Traigo los valores de los inputs
-const nombreInput = document.getElementById('nombreCreateProfesor');
-const apellidoInput = document.getElementById('apellidoCreateProfesor');
-const materiaInput = document.getElementById('materiaCreateProfesor');
+const nombreInput = document.getElementById('nombre');
+const apellidoInput = document.getElementById('apellido');
+const materiaInput = document.getElementById('materia');
 
 form.addEventListener('submit', function (event) {
     event.preventDefault();
@@ -33,10 +33,12 @@ const mostrarError = (input, mensaje) => {
 const limpiarError = input => {
     const elementoPadre = input.parentElement; // Etiqueta div padre del input
     const etiquetaP = elementoPadre.querySelector('p'); // Selecciona el <p>
-
-    etiquetaP.innerText = ''; // Limpia el mensaje de error en el <p>
-    input.classList.remove('border-indigo-500'); // Elimina el estilo del input
-    input.classList.add('border-gray-300'); // Aplica el estilo del input
+    if (etiquetaP){
+        etiquetaP.innerText = ''; // Limpia el mensaje de error en el <p>
+        input.classList.remove('border-indigo-500'); // Elimina el estilo del input
+        input.classList.add('border-gray-300'); // Aplica el estilo del input
+    }
+    
 }
 
 //Función para validar

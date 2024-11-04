@@ -5,12 +5,12 @@ require_once 'materia.php';
 
 class Profesor extends Conexion {
 
-    public $id, $nombre, $apellido, $materia_id;
+    public $id, $nombre, $segundo_nombre, $apellido, $materia_id;
 
     public function create() {
         $this->conectar();
-        $pre = mysqli_prepare($this->con, "INSERT INTO profesores (nombre, apellido, materia_id) VALUES (?, ?, ?)");
-        $pre->bind_param("ssi", $this->nombre, $this->apellido, $this->materia_id);
+        $pre = mysqli_prepare($this->con, "INSERT INTO profesores (nombre, segundo_nombre, apellido, materia_id) VALUES (?, ?, ?, ?)");
+        $pre->bind_param("sssi", $this->nombre, $this->segundo_nombre, $this->apellido, $this->materia_id);
         $pre->execute();
     }
 
@@ -53,8 +53,8 @@ class Profesor extends Conexion {
 
     public function update() {
         $this->conectar();
-        $pre = mysqli_prepare($this->con, "UPDATE profesores SET nombre = ?, apellido = ?, materia_id = ? WHERE id = ? ");
-        $pre->bind_param("ssii", $this->nombre, $this->apellido, $this->materia_id, $this->id) ;
+        $pre = mysqli_prepare($this->con, "UPDATE profesores SET nombre = ?, segundo_nombre = ?, apellido = ?, materia_id = ? WHERE id = ? ");
+        $pre->bind_param("sssii", $this->nombre, $this->segundo_nombre, $this->apellido, $this->materia_id, $this->id) ;
         $pre->execute();
     }
 

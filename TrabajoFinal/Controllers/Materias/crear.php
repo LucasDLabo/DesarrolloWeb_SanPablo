@@ -2,8 +2,8 @@
 
 require_once "../../Models/materia.php";
 
-if (isset($_POST['nombreMateria'])){
-    $nombreMateria = $_POST['nombreMateria'];
+if (isset($_POST['nombre'])){
+    $nombreMateria = $_POST['nombre'];
     var_dump($nombreMateria);
     $materia = new Materia;
     $materia->nombre = $nombreMateria;

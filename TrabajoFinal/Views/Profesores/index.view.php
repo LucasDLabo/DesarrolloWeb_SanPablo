@@ -144,7 +144,7 @@
                         <thead>
                             <tr>
                                 <th class="w-1/12 text-xs">ID</th>
-                                <th class="text-xs">Nombre</th>
+                                <th class="text-xs">Nombre Completo</th>
                                 <th class="text-xs">Apellido</th>
                                 <th class="text-xs">Materias</th>
                                 <th class="w-4/12 text-xs">Acción</th>
@@ -157,7 +157,7 @@
 
                             <tr>
                                 <td class="border text-center"><?= $profesor->id ?></td>
-                                <td class="border"><?= $profesor->nombre ?></td>
+                                <td class="border"><?= $profesor->nombre . " " . $profesor->segundo_nombre ?></td>
                                 <td class="border"><?= $profesor->apellido ?></td>
                                 <td class="border text-center"><?= $profesor->materia()->nombre ?></td>
                                 <td class="w-2/12 border text-center">
@@ -185,7 +185,7 @@
                         <tfoot>
                             <tr>
                                 <th class="text-xs">ID</th>
-                                <th class="text-xs">Nombre</th>
+                                <th class="text-xs">Nombre Completo</th>
                                 <th class="text-xs">Apellido</th>
                                 <th class="text-xs">Materias</th>
                                 <th class="text-xs">Acción</th>
