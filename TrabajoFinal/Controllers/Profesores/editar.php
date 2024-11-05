@@ -8,11 +8,13 @@ $materias = Materia::all();
 
 if (isset($_POST['nombre'])) {
     $nombre = $_POST['nombre'];
+    $segundo_nombre = $_POST['segundo_nombre'];
     $apellido = $_POST['apellido'];
-    $materiaID = $_POST['materiaID'];
+    $materiaID = $_POST['materia'];
 
     $profesor = Profesor::getById($id);
     $profesor->nombre = $nombre;
+    $profesor->segundo_nombre = $segundo_nombre;
     $profesor->apellido = $apellido;
     $profesor->materia_id = $materiaID;
     $profesor->update();

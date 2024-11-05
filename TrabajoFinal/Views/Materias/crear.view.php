@@ -12,7 +12,7 @@
 </head>
 
 <body class="min-h-screen flex flex-col">
-<header>
+    <header>
         <nav class="border-gray-200 bg-white shadow dark:border-gray-700 dark:bg-gray-900">
             <div class="max-w-screen flex flex-wrap items-center justify-between p-4">
                 <a href="#" class="flex items-center space-x-3 rtl:space-x-reverse ">
@@ -63,16 +63,16 @@
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="../Profesores/crear.php" 
+                                        <a href="../Profesores/crear.php"
                                             class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">
                                             Nuevo Profesor
                                         </a>
                                     </li>
                                     <li>
-                                        <aaria-current="page"
+                                        <a aria-current="page"
                                             class="block px-4 py-2 text-blue-700 bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white cursor-default">
                                             Nueva Materia
-                                        </aaria-current=>
+                                        </a>
                                     </li>
                                 </ul>
                                 <div class="py-1">
@@ -103,9 +103,9 @@
     <main class="flex-grow">
         <div class="grid grid-cols-6 items-start justify-items-center py-8">
 
-            <a href="javascript:history.back()"
-                class="w-3/5  bg-blue-500 hover:bg-blue-900 text-white font-bold py-2 px-4 rounded text-center">
-                Volver atrás
+            <a href="../Materias/index.php"
+                class="w-3/5 rounded bg-blue-900 py-3 text-center text-sm font-bold text-gray-100 hover:bg-blue-800 hover:text-white">
+                Volver a Materias
             </a>
 
             <div class="w-full col-start-2 col-end-6">
@@ -152,6 +152,7 @@
     <script src="https://cdn.jsdelivr.net/npm/flowbite@2.5.2/dist/flowbite.min.js"></script>
     <script>
         const formulario = document.getElementById('createMateria');
+
         function clean() {
             formulario.reset();
             cleanErrores();

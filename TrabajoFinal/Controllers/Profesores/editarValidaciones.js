@@ -22,9 +22,9 @@ const mostrarError = (input, mensaje) => {
     const etiquetaP = elementoPadre.querySelector('p'); // Selecciona el <p>
 
     etiquetaP.innerText = mensaje; // Muestra el mensaje de error en el <p>
-    etiquetaP.classList.add('text-indigo-700'); // Aplica el estilo de la etiqueta <p>
+    etiquetaP.classList.add('text-blue-900'); // Aplica el estilo de la etiqueta <p>
     input.classList.remove('border-gray-300'); // Quita el estilo del input
-    input.classList.add('border-indigo-500'); // Aplica el estilo del input
+    input.classList.add('border-blue-900'); // Aplica el estilo del input
 }
 
 const limpiarError = input => {
@@ -32,7 +32,7 @@ const limpiarError = input => {
     const etiquetaP = elementoPadre.querySelector('p'); // Selecciona el <p>
 
     etiquetaP.innerText = ''; // Limpia el mensaje de error en el <p>
-    input.classList.remove('border-indigo-500'); // Elimina el estilo del input
+    input.classList.remove('border-blue-900'); // Elimina el estilo del input
     input.classList.add('border-gray-300'); // Aplica el estilo del input
 }
 

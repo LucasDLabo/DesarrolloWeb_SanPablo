@@ -106,10 +106,9 @@
 
         <div class="grid grid-cols-6 items-start py-8 justify-items-center">
 
-
-            <a href="javascript:history.back()"
-                class="w-3/5  bg-blue-500 hover:bg-blue-900 text-white font-bold py-2 px-4 rounded text-center">
-                Volver atrás
+            <a href="../Alumnos/index.php"
+                class="w-3/5 rounded bg-blue-900 py-3 text-center text-sm font-bold text-gray-100 hover:bg-blue-800 hover:text-white">
+                Volver a Alumnos
             </a>
             <div class="w-full col-start-2 col-end-6">
                 <div class= "bg-white px-20 py-8 rounded-lg mx-20 ">
