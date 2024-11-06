@@ -7,6 +7,6 @@ $id = $_GET['id'];
 $alumno = Alumno::getById($id);
 
 if($alumno){
-    $alumno->delete();
+    $alumno->softdelete();
     header('Location: ../../Controllers/Alumnos/index.php');
 }

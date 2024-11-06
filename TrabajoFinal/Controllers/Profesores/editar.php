@@ -22,8 +22,10 @@ if (isset($_POST['nombre'])) {
     header('Location: ../../Controllers/Profesores/index.php');
 }else{
     $profesor = Profesor::getById($id);
-    if($profesor){
+    if($profesor and $profesor->papelera != 1 and $profesor->borrado != 1){
         require_once "../../Views/Profesores/editar.view.php";
+    }else{
+        require_once "../../Controllers/Profesores/index.php";
     }
 }
 

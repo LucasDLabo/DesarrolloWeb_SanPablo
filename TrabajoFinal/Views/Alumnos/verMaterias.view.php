@@ -14,7 +14,7 @@
     <header>
         <nav class=" bg-blue-400 flex text-center items-center">
             <div class="flex hover:bg-blue-300">
-                <a href="../Index/Index.php" class="py-2 px-3 text-lg font-bold text-white">🏡 Ir a Vista General </a>
+                <a href="#" class="py-2 px-3 text-lg font-bold text-white">🏡 Ir a Vista General </a>
             </div>
 
             <section class=" text-white text-lg"> | </section>
@@ -24,7 +24,7 @@
     <main class="flex-grow">
         <div class="grid grid-cols-6 pt-8 mx-7 items-start justify-items-center h-auto">
 
-            <a href="index.php"
+            <a href="javascript:history.back()"
                 class=" bg-blue-500 hover:bg-blue-900 text-white font-bold py-2 px-4 rounded text-center">
                 Volver atrás
             </a>

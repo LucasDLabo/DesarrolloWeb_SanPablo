@@ -7,6 +7,6 @@ $id = $_GET['id'];
 $materia = Materia::getById($id);
 
 if($materia){
-    $materia->delete();
+    $materia->softdelete();
     header('Location: ../../Controllers/Materias/index.php');
 }

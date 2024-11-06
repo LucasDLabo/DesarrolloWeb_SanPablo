@@ -83,7 +83,7 @@
                             </div>
                         </li>
                         <li>
-                            <a href="#"
+                            <a href="../Papelera/index.php"
                                 class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Papelera</a>
                         </li>
                         <li>
@@ -168,7 +168,7 @@
                                             Editar
                                         </a>
                                         <a href="eliminar.php?id=<?= $profesor->id ?>"
-                                            onclick="return confirmar('<?= $profesor->nombre . ' ' . $profesor->apellido ?>')"
+                                            onclick="return confirmar('<?= $profesor->nombre . ' '. $profesor->segundo_nombre  . ' ' . $profesor->apellido ?>')"
                                             title="Eliminar Profesor <?= $profesor->nombre . ' ' . $profesor->apellido ?>"
                                             class="w-20 rounded bg-rose-700 py-1 text-center font-semibold text-white hover:bg-rose-900">
                                             Eliminar
@@ -223,8 +223,8 @@
         });
 
         function confirmar(nombre) {
-            return confirm("⚠️ Atención ⚠️ \n ¿Estás seguro de que deseas eliminar al profesor " + nombre +
-                "? \n Está acción no se puede deshacer.");
+            return confirm("⚠️ Atención ⚠️ \n¿Estás seguro de que deseas eliminar al profesor " + nombre +
+                "? \nEl profesor será enviado a la papelera.");
         }
     </script>
 

@@ -5,7 +5,7 @@ require_once 'materia.php';
 
 class Profesor extends Conexion {
 
-    public $id, $nombre, $segundo_nombre, $apellido, $materia_id;
+    public $id, $nombre, $segundo_nombre, $apellido, $materia_id, $papelera, $borrado;
 
     public function create() {
         $this->conectar();
@@ -17,7 +17,7 @@ class Profesor extends Conexion {
     public static function all() {
         $conexion = new Conexion();
         $conexion->conectar();
-        $pre = mysqli_prepare($conexion->con, "SELECT * FROM profesores");
+        $pre = mysqli_prepare($conexion->con, "SELECT * FROM profesores WHERE papelera IS NULL AND borrado IS NULL");
         $pre->execute();
         $valoresDB = $pre->get_result();
 
@@ -29,6 +29,20 @@ class Profesor extends Conexion {
         return $profesores;
     }
 
+    public static function allDelete() {
+        $conexion = new Conexion();
+        $conexion->conectar();
+        $pre = mysqli_prepare($conexion->con, "SELECT * FROM profesores WHERE papelera = 1 AND borrado IS NULL");
+        $pre->execute();
+        $valoresDB = $pre->get_result();
+
+        $profesores = [];
+        while ($profesor = $valoresDB->fetch_object(Profesor::class) ){
+            array_push($profesores, $profesor);
+        }
+
+        return $profesores;
+    }
     public static function getById($id){
 
         $conexion = new Conexion();
@@ -44,9 +58,23 @@ class Profesor extends Conexion {
 
     }
 
+    public function softdelete() {
+        $this->conectar();
+        $pre = mysqli_prepare($this->con, "UPDATE profesores SET papelera = 1 WHERE id = ?");
+        $pre->bind_param("i", $this->id);
+        $pre->execute();
+    }
+
+    public function restaurar() {
+        $this->conectar();
+        $pre = mysqli_prepare($this->con, "UPDATE profesores SET papelera = NULL WHERE id = ?");
+        $pre->bind_param("i", $this->id);
+        $pre->execute();
+    }
+
     public function delete() {
         $this->conectar();
-        $pre = mysqli_prepare($this->con, "DELETE FROM profesores WHERE id = ?");
+        $pre = mysqli_prepare($this->con, "UPDATE profesores SET borrado = 1 WHERE id = ?");
         $pre->bind_param("i", $this->id);
         $pre->execute();
     }

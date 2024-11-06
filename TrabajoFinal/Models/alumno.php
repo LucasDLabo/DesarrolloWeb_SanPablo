@@ -6,7 +6,7 @@ require_once 'materia.php';
 
 class Alumno extends Conexion {
 
-    public $id, $nombre, $segundo_nombre, $apellido, $fecha_nacimiento;
+    public $id, $nombre, $segundo_nombre, $apellido, $fecha_nacimiento, $papelera, $borrado;
 
     public function create() {
         $this->conectar();
@@ -20,7 +20,22 @@ class Alumno extends Conexion {
     public static function all() {
         $conexion = new Conexion();
         $conexion->conectar();
-        $pre = mysqli_prepare($conexion->con, "SELECT * FROM alumnos");
+        $pre = mysqli_prepare($conexion->con, "SELECT * FROM alumnos WHERE papelera IS NULL AND borrado IS NULL");
+        $pre->execute();
+        $valoresDB = $pre->get_result();
+
+        $alumnos = [];
+        while ($alumno = $valoresDB->fetch_object(Alumno::class) ){
+            array_push($alumnos, $alumno);
+        }
+
+        return $alumnos;
+    }
+
+    public static function allDelete() {
+        $conexion = new Conexion();
+        $conexion->conectar();
+        $pre = mysqli_prepare($conexion->con, "SELECT * FROM alumnos WHERE papelera = 1 AND borrado IS NULL");
         $pre->execute();
         $valoresDB = $pre->get_result();
 
@@ -48,9 +63,23 @@ class Alumno extends Conexion {
 
     }
 
+    public function softdelete() {
+        $this->conectar();
+        $pre = mysqli_prepare($this->con, "UPDATE alumnos SET papelera = 1 WHERE id = ?");
+        $pre->bind_param("i", $this->id);
+        $pre->execute();
+    }
+
+    public function restaurar() {
+        $this->conectar();
+        $pre = mysqli_prepare($this->con, "UPDATE alumnos SET papelera = NULL WHERE id = ?");
+        $pre->bind_param("i", $this->id);
+        $pre->execute();
+    }
+
     public function delete() {
         $this->conectar();
-        $pre = mysqli_prepare($this->con, "DELETE FROM alumnos WHERE id = ?");
+        $pre = mysqli_prepare($this->con, "UPDATE alumnos SET borrado = 1 WHERE id = ?");
         $pre->bind_param("i", $this->id);
         $pre->execute();
     }

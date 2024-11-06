@@ -7,7 +7,7 @@ require_once 'alumno.php';
 
 class Materia extends Conexion {
 
-    public $id, $nombre;
+    public $id, $nombre, $papelera, $borrado;
 
     public function create(){
         $this->conectar();
@@ -19,7 +19,7 @@ class Materia extends Conexion {
     public static function all(){
         $conexion = new Conexion();
         $conexion->conectar();
-        $pre = mysqli_prepare($conexion->con, "SELECT * FROM materias ORDER BY nombre ASC");
+        $pre = mysqli_prepare($conexion->con, "SELECT * FROM materias WHERE papelera IS NULL AND borrado IS NULL ORDER BY id ASC");
         $pre->execute();
         $valoresDB = $pre->get_result();
 
@@ -31,6 +31,20 @@ class Materia extends Conexion {
         return $materiasDB;
     }
 
+    public static function allDelete() {
+        $conexion = new Conexion();
+        $conexion->conectar();
+        $pre = mysqli_prepare($conexion->con, "SELECT * FROM materias WHERE papelera = 1 AND borrado IS NULL");
+        $pre->execute();
+        $valoresDB = $pre->get_result();
+
+        $materias = [];
+        while ($materia = $valoresDB->fetch_object(Materia::class) ){
+            array_push($materias, $materia);
+        }
+
+        return $materias;
+    }
     public static function getById($id){
 
         $conexion = new Conexion();
@@ -46,9 +60,23 @@ class Materia extends Conexion {
 
     }
 
+    public function softdelete() {
+        $this->conectar();
+        $pre = mysqli_prepare($this->con, "UPDATE materias SET papelera = 1 WHERE id = ?");
+        $pre->bind_param("i", $this->id);
+        $pre->execute();
+    }
+
+    public function restaurar() {
+        $this->conectar();
+        $pre = mysqli_prepare($this->con, "UPDATE materias SET papelera = NULL WHERE id = ?");
+        $pre->bind_param("i", $this->id);
+        $pre->execute();
+    }
+
     public function delete() {
         $this->conectar();
-        $pre = mysqli_prepare($this->con, "DELETE FROM materias WHERE id = ?");
+        $pre = mysqli_prepare($this->con, "UPDATE materias SET borrado = 1 WHERE id = ?");
         $pre->bind_param("i", $this->id);
         $pre->execute();
     }

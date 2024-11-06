@@ -12,5 +12,10 @@ if (isset($_POST['nombre'])){
     header('Location: ../../Controllers/Materias/index.php');
 }
 
+if ($materia) {
+    # code...
+}else{
+    
+}
 
 require_once "../../Views/Materias/crear.view.php";
