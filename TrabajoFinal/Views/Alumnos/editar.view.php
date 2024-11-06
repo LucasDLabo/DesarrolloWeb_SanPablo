@@ -19,14 +19,13 @@
         <nav class="border-gray-200 bg-white shadow dark:border-gray-700 dark:bg-gray-900">
             <div class="max-w-screen flex flex-wrap items-center justify-between p-4">
                 <a href="#" class="flex items-center space-x-3 rtl:space-x-reverse ">
-                    <!-- <img src="https://flowbite.com/docs/images/logo.svg" class="h-8" alt="Flowbite Logo" /> -->
                     <span
                         class="self-center text-xl font-semibold whitespace-nowrap dark:text-white hover:text-blue-500">
                         Ir a la Vista General
                     </span>
                 </a>
                 <button data-collapse-toggle="navbar-dropdown" type="button"
-                    class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
+                    class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
                     aria-controls="navbar-dropdown" aria-expanded="false">
                     <span class="sr-only">Abrir menu principal</span>
                     <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
@@ -56,45 +55,32 @@
                             <!-- Dropdown menu -->
                             <div id="dropdownNavbar"
                                 class="z-10 hidden font-normal bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700 dark:divide-gray-600">
-                                <ul class="py-2 text-sm text-gray-700 dark:text-gray-400"
+                                <ul class="py-2 text-sm text-gray-700"
                                     aria-labelledby="dropdownLargeButton">
                                     <li>
-                                        <a href="#" aria-current="page"
+                                        <a href="../Alumnos/crear.php"
                                             class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">
                                             Nuevo Alumno
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="#"
+                                        <a href="../Profesores/crear.php"
                                             class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">
                                             Nuevo Profesor
                                         </a>
                                     </li>
                                     <li>
-                                        <a href=""
+                                        <a href="../Materias/crear.php"
                                             class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">
                                             Nueva Materia
                                         </a>
                                     </li>
                                 </ul>
-                                <div class="py-1">
-                                    <a href="#"
-                                        class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Sign
-                                        out</a>
-                                </div>
                             </div>
                         </li>
                         <li>
-                            <a href="#"
+                            <a href="../Papelera/index.php"
                                 class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Papelera</a>
-                        </li>
-                        <li>
-                            <a href="#"
-                                class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Pricing</a>
-                        </li>
-                        <li>
-                            <a href="#"
-                                class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Contact</a>
                         </li>
                     </ul>
                 </div>
@@ -119,10 +105,10 @@
 
                             <div class="group relative z-0 mb-3 w-full">
                                 <input type="text" name="nombre" id="nombre" value="<?= $alumno->nombre ?>"
-                                    class="peer block w-full appearance-none border-0 border-b-2 border-gray-300 bg-transparent px-0 py-2.5 text-sm text-gray-900 focus:border-blue-900 focus:outline-none focus:ring-0 dark:border-gray-600 dark:text-white dark:focus:border-blue-500"
+                                    class="peer block w-full appearance-none border-0 border-b-2 border-gray-300 bg-transparent px-0 py-2.5 text-sm text-gray-900 focus:border-blue-900 focus:outline-none focus:ring-0 dark:border-gray-600"
                                     placeholder=" " />
                                 <label for="nombre"
-                                    class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-blue-900 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">
+                                    class="peer-focus:font-medium absolute text-sm text-gray-500 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-blue-900 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">
                                     * Primer Nombre
                                 </label>
                                 <p class="mt-2 h-5 text-xs text-blue-700"></p>
@@ -130,10 +116,10 @@
 
                             <div class="relative z-0 w-full mb-3 group">
                                 <input type="text" name="segundo_nombre" value="<?= $alumno->segundo_nombre ?>"
-                                    class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-900 peer"
+                                    class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none focus:outline-none focus:ring-0 focus:border-blue-900 peer"
                                     placeholder=" " />
                                 <label for="segundo_nombre"
-                                    class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-blue-900 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">
+                                    class="peer-focus:font-medium absolute text-sm text-gray-500 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-blue-900 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">
                                     Segundo Nombre
                                 </label>
                             </div>
@@ -143,10 +129,10 @@
                         <div class="relative z-0 w-full mb-1 group">
 
                             <input type="text" name="apellido" id="apellido" value="<?= $alumno->apellido ?>"
-                                class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-900 peer"
+                                class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-900 peer"
                                 placeholder=" " />
                             <label for="apellido"
-                                class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto peer-focus:text-blue-900 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">
+                                class="peer-focus:font-medium absolute text-sm text-gray-500 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto peer-focus:text-blue-900 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">
                                 * Apellido
                             </label>
                             <p class="text-xs h-5 text-blue-700 mt-2"></p>
@@ -162,7 +148,7 @@
                                     de Nacimiento </label>
                                 <input id="fecha" name="fecha" type="date"
                                     value="<?= $alumno->fecha_nacimiento ?>"
-                                    class="mb-2 block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-center text-sm text-gray-900 focus:border-blue-900 peer-focus:ring-blue-900  dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 dark:focus:border-blue-500 dark:focus:ring-blue-500">
+                                    class="mb-2 block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-center text-sm text-gray-900 focus:border-blue-900 peer-focus:ring-blue-900 ">
                                 <p class="text-xs h-5 text-blue-900 "></p>
 
                             </div>
@@ -171,7 +157,7 @@
 
                                 <label for="materias" class="text-gray-500 text-sm">Materias</label>
                                 <button @click="open = !open" type="button"
-                                    class="flex justify-between w-full text-sm text-gray-500 bg-transparent border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 py-2.5 px-0 text-left">
+                                    class="flex justify-between w-full text-sm text-gray-500 bg-transparent border-b-2 border-gray-300 appearance-none dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 py-2.5 px-0 text-left">
                                     Selecciona las materias del alumno
                                     <span class=" text-2xs">▼</span>
                                 </button>
@@ -187,7 +173,7 @@
                                     <span class="text-gray-700">
                                         <?php foreach ($materias as $materia) {?>
                                         <label
-                                            class="flex cursor-pointer  py-2.5 px-2 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:hover:bg-gray-700 hover:bg-gray-100 focus:outline-none focus:ring-0s">
+                                            class="flex cursor-pointer  py-2.5 px-2 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:border-gray-600 dark:hover:bg-gray-700 hover:bg-gray-100 focus:outline-none focus:ring-0s">
                                             <input type="checkbox" name="materia[]" class="mr-2"
                                                 value="<?= $materia->id ?>" <?= in_array($materia->id, $idMaterias) ? 'checked' : '' ?>> <?= $materia->nombre ?>
                                         </label>

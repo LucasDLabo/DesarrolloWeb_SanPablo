@@ -117,4 +117,15 @@ class Materia extends Conexion {
         }
         return $alumnos;
     }
+
+    public static function conteo() {
+        $conexion = new Conexion();
+        $conexion->conectar();
+        $pre = mysqli_prepare($conexion->con, "SELECT COUNT(id) as Recuento FROM `materias`");
+        $pre->execute();
+        $valoresDB = $pre->get_result();
+        $alumno = $valoresDB->fetch_assoc();
+        return $alumno['Recuento'];
+
+    }
 }

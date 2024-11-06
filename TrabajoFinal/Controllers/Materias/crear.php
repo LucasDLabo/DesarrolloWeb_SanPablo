@@ -4,7 +4,7 @@ require_once "../../Models/materia.php";
 
 if (isset($_POST['nombre'])){
     $nombreMateria = $_POST['nombre'];
-    var_dump($nombreMateria);
+    
     $materia = new Materia;
     $materia->nombre = $nombreMateria;
     $materia->create();
@@ -12,10 +12,5 @@ if (isset($_POST['nombre'])){
     header('Location: ../../Controllers/Materias/index.php');
 }
 
-if ($materia) {
-    # code...
-}else{
-    
-}
 
 require_once "../../Views/Materias/crear.view.php";

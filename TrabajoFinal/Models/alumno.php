@@ -120,4 +120,29 @@ class Alumno extends Conexion {
         
         return $materias;
     }
+
+
+    public static function conteo() {
+        $conexion = new Conexion();
+        $conexion->conectar();
+        $pre = mysqli_prepare($conexion->con, "SELECT COUNT(id) as Recuento FROM `alumnos`");
+        $pre->execute();
+        $valoresDB = $pre->get_result();
+        $alumno = $valoresDB->fetch_assoc();
+        return $alumno['Recuento'];
+
+    }
+
+    public static function materiaEstudiada() {
+        $conexion = new Conexion();
+        $conexion->conectar();
+        $pre = mysqli_prepare($conexion->con, "SELECT materia_id,COUNT(alumno_id) AS 'total' FROM `alumno_materia` GROUP BY materia_id ORDER BY total DESC LIMIT 1");
+        $pre->execute();
+        $valoresDB = $pre->get_result();
+        $materiaMasEstudiada = $valoresDB->fetch_assoc();
+
+        return $materiaMasEstudiada['materia_id'];
+
+    }
+
 }

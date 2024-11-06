@@ -18,8 +18,7 @@
     <header>
         <nav class="border-gray-200 bg-white shadow dark:border-gray-700 dark:bg-gray-900">
             <div class="max-w-screen flex flex-wrap items-center justify-between  p-4">
-                <a href="#" class="flex items-center space-x-3 rtl:space-x-reverse ">
-                    <!-- <img src="https://flowbite.com/docs/images/logo.svg" class="h-8" alt="Flowbite Logo" /> -->
+                <a href="../Dashboard/index.php" class="flex items-center space-x-3 rtl:space-x-reverse ">
                     <span
                         class="self-center text-xl font-semibold whitespace-nowrap dark:text-white hover:text-blue-500">
                         Ir a la Vista General
@@ -75,24 +74,11 @@
                                         </a>
                                     </li>
                                 </ul>
-                                <div class="py-1">
-                                    <a href="#"
-                                        class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Sign
-                                        out</a>
-                                </div>
                             </div>
                         </li>
                         <li>
                             <a href="../Papelera/index.php"
                                 class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Papelera</a>
-                        </li>
-                        <li>
-                            <a href="#"
-                                class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Pricing</a>
-                        </li>
-                        <li>
-                            <a href="#"
-                                class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Contact</a>
                         </li>
                     </ul>
                 </div>

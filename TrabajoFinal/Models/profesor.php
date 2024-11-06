@@ -90,4 +90,27 @@ class Profesor extends Conexion {
     public function materia() {
         return Materia::getById($this->materia_id);
     }
+
+    public static function conteo() {
+        $conexion = new Conexion();
+        $conexion->conectar();
+        $pre = mysqli_prepare($conexion->con, "SELECT COUNT(id) as Recuento FROM `profesores`");
+        $pre->execute();
+        $valoresDB = $pre->get_result();
+        $alumno = $valoresDB->fetch_assoc();
+        return $alumno['Recuento'];
+
+    }
+
+    public static function materiaMenosProfes() {
+        $conexion = new Conexion();
+        $conexion->conectar();
+        $pre = mysqli_prepare($conexion->con, "SELECT materia_id,COUNT(id) AS 'total' FROM `profesores` GROUP BY materia_id ORDER BY total ASC LIMIT 1");
+        $pre->execute();
+        $valoresDB = $pre->get_result();
+        $materiaMenosProfes = $valoresDB->fetch_assoc();
+
+        return $materiaMenosProfes['materia_id'];
+
+    }
 }
