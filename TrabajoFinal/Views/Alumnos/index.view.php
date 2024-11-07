@@ -197,8 +197,12 @@
     </main>
 
     <footer>
-        <div class=" bg-slate-600">
-            Footer
+        <div class="flex text-center justify-center py-3 bg-slate-800">
+            <p class="text-gray-600">
+            Proyecto Creado por Lucas D Labo - 2024
+            <br> 
+            Desarrollo Web - Instituto Superior San Pablo 9112.
+            </p>
         </div>
     </footer>
 

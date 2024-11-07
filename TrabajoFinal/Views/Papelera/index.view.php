@@ -163,12 +163,12 @@
                 <hr class="h-0.5 mt-5 bg-gray-400 rounded w-1/4">
             </div>
             <?php }else { ?>
-            <div class="text-gray-400 flex text-center items-center justify-center gap-2 mt-1 mb-5">
+            <div class="text-gray-400 flex text-center items-center justify-center gap-2 mt-1">
                 <p>Aquí no hay nada ... </p>
                 <img src="../../assets/img/ghost-svgrepo-com.png" alt="" class="h-auto w-9 translate-y-1">
             </div>
-            <div class="flex flex-grow justify-center items-end">
-                <hr class="m-0 h-0.5 bg-gray-400 rounded w-1/4">
+            <div class="flex justify-center items-end my-5">
+                <hr class="m-0 h-0.5 bg-gray-400 rounded w-1/4 ">
             </div>
             <?php } ?>
         </div>
@@ -245,12 +245,12 @@
             </div>
 
             <?php }else { ?>
-            <div class="text-gray-400 flex text-center items-center justify-center gap-2  mt-1">
+            <div class="text-gray-400 flex text-center items-center justify-center gap-2 mt-1">
                 <p>Aquí no hay nada ... </p>
                 <img src="../../assets/img/ghost-svgrepo-com.png" alt="" class="h-auto w-9 translate-y-1">
             </div>
-            <div class="flex flex-grow justify-center items-end">
-                <hr class="m-0 h-0.5 bg-gray-400 rounded w-1/4">
+            <div class="flex justify-center items-end my-5">
+                <hr class="m-0 h-0.5 bg-gray-400 rounded w-1/4 ">
             </div>
             <?php } ?>
         </div>
@@ -313,9 +313,12 @@
             </div>
 
             <?php }else { ?>
-            <div class="text-gray-400 flex text-center items-center justify-center gap-2 mb-5 mt-1">
+            <div class="text-gray-400 flex text-center items-center justify-center gap-2 mt-1">
                 <p>Aquí no hay nada ... </p>
                 <img src="../../assets/img/ghost-svgrepo-com.png" alt="" class="h-auto w-9 translate-y-1">
+            </div>
+            <div class="flex justify-center items-end my-5">
+                <hr class="m-0 h-0.5 bg-gray-400 rounded w-1/4 ">
             </div>
             <?php } ?>
         </div>
@@ -323,8 +326,12 @@
     </main>
 
     <footer>
-        <div class=" bg-slate-600">
-            Footer
+        <div class="flex text-center justify-center py-3 bg-slate-800">
+            <p class="text-gray-600">
+            Proyecto Creado por Lucas D Labo - 2024
+            <br> 
+            Desarrollo Web - Instituto Superior San Pablo 9112.
+            </p>
         </div>
     </footer>
 

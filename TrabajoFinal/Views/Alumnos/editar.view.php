@@ -18,7 +18,7 @@
     <header>
         <nav class="border-gray-200 bg-white shadow dark:border-gray-700 dark:bg-gray-900">
             <div class="max-w-screen flex flex-wrap items-center justify-between p-4">
-                <a href="#" class="flex items-center space-x-3 rtl:space-x-reverse ">
+                <a href="../Dashboard/index.php" class="flex items-center space-x-3 rtl:space-x-reverse ">
                     <span
                         class="self-center text-xl font-semibold whitespace-nowrap dark:text-white hover:text-blue-500">
                         Ir a la Vista General
@@ -40,7 +40,7 @@
                         <li>
                             <a href="../Alumnos/index.php"
                                 class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">
-                                Lista de usuarios
+                                Lista de datos
                             </a>
                         </li>
                         <li>
@@ -205,8 +205,12 @@
     </main>
 
     <footer>
-        <div class=" bg-slate-600">
-            <p class="text-3xl">Footer</p>
+        <div class="flex text-center justify-center py-3 bg-slate-800">
+            <p class="text-gray-600">
+            Proyecto Creado por Lucas D Labo - 2024
+            <br> 
+            Desarrollo Web - Instituto Superior San Pablo 9112.
+            </p>
         </div>
     </footer>
 
