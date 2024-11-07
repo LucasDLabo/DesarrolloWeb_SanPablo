@@ -108,7 +108,7 @@ class Alumno extends Conexion {
 
     public function materias(){
         $this->conectar();
-        $pre = mysqli_prepare($this->con, "SELECT materias.* FROM materias INNER JOIN alumno_materia ON materias.id = alumno_materia.materia_id WHERE alumno_materia.alumno_id = ? ");
+        $pre = mysqli_prepare($this->con, "SELECT materias.* FROM materias INNER JOIN alumno_materia ON materias.id = alumno_materia.materia_id WHERE alumno_materia.alumno_id = ? AND materias.papelera IS NULL ");
         $pre->bind_param("i", $this->id);
         $pre->execute();
         $valoresDB = $pre->get_result();

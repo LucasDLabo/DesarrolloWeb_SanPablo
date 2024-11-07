@@ -145,7 +145,13 @@
                                 <td class="border text-center"><?= $profesor->id ?></td>
                                 <td class="border"><?= $profesor->nombre . " " . $profesor->segundo_nombre ?></td>
                                 <td class="border"><?= $profesor->apellido ?></td>
-                                <td class="border text-center"><?= $profesor->materia()->nombre ?></td>
+                                <td class="border text-center"><?php
+                                if ($profesor->materia() ) { 
+                                    echo $profesor->materia()->nombre;
+                                }else{
+                                    echo 'No cuenta con materias asignadas.';
+                                }
+                                ?></td>
                                 <td class="w-2/12 border text-center">
                                     <div class="flex justify-center space-x-2">
                                         <a href="editar.php?id=<?= $profesor->id ?>"
