@@ -125,7 +125,7 @@ class Alumno extends Conexion {
     public static function conteo() {
         $conexion = new Conexion();
         $conexion->conectar();
-        $pre = mysqli_prepare($conexion->con, "SELECT COUNT(id) as Recuento FROM `alumnos`");
+        $pre = mysqli_prepare($conexion->con, "SELECT COUNT(id) as Recuento FROM `alumnos` WHERE papelera IS NULL OR borrado IS NULL");
         $pre->execute();
         $valoresDB = $pre->get_result();
         $alumno = $valoresDB->fetch_assoc();

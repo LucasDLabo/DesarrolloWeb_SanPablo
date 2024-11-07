@@ -94,7 +94,7 @@ class Profesor extends Conexion {
     public static function conteo() {
         $conexion = new Conexion();
         $conexion->conectar();
-        $pre = mysqli_prepare($conexion->con, "SELECT COUNT(id) as Recuento FROM `profesores`");
+        $pre = mysqli_prepare($conexion->con, "SELECT COUNT(id) as Recuento FROM `profesores` WHERE papelera IS NULL OR borrado IS NULL");
         $pre->execute();
         $valoresDB = $pre->get_result();
         $alumno = $valoresDB->fetch_assoc();
@@ -105,7 +105,7 @@ class Profesor extends Conexion {
     public static function materiaMenosProfes() {
         $conexion = new Conexion();
         $conexion->conectar();
-        $pre = mysqli_prepare($conexion->con, "SELECT materia_id,COUNT(id) AS 'total' FROM `profesores` GROUP BY materia_id ORDER BY total ASC LIMIT 1");
+        $pre = mysqli_prepare($conexion->con, "SELECT materia_id,COUNT(id) AS 'total' FROM `profesores` WHERE papelera IS NULL OR borrado IS NULL GROUP BY materia_id ORDER BY total ASC LIMIT 1");
         $pre->execute();
         $valoresDB = $pre->get_result();
         $materiaMenosProfes = $valoresDB->fetch_assoc();

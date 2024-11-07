@@ -121,7 +121,7 @@ class Materia extends Conexion {
     public static function conteo() {
         $conexion = new Conexion();
         $conexion->conectar();
-        $pre = mysqli_prepare($conexion->con, "SELECT COUNT(id) as Recuento FROM `materias`");
+        $pre = mysqli_prepare($conexion->con, "SELECT COUNT(id) as Recuento FROM `materias` WHERE papelera IS NULL OR borrado IS NULL");
         $pre->execute();
         $valoresDB = $pre->get_result();
         $alumno = $valoresDB->fetch_assoc();
